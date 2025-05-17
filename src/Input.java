@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Input { // BELUM DITESSSS
+public class Input { 
     public static Board readBoardFromFile(String filename) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filename));
         String[] dim = br.readLine().split(" ");
