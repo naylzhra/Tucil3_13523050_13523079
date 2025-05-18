@@ -2,8 +2,6 @@
 
 if not exist bin mkdir bin
 
-javac -d bin src\*.java 
+javac -d bin src\object\*.java src\utils\*.java src\Main.java
 
 java -cp bin Main
-
-pause

@@ -1,3 +1,4 @@
+package object;
 import java.util.List;
 
 public class Board {
@@ -5,6 +6,7 @@ public class Board {
     public List<Piece> pieces;
     public int width, height;
     public int goalRow, goalCol;
+    public char exitDir;
 
     public static final String RESET = "\u001B[0m";
     public static final String RED = "\u001B[31m";
@@ -16,6 +18,7 @@ public class Board {
         this.pieces = pieces;
         this.goalRow = goalRow;
         this.goalCol = goalCol;
+        this.exitDir = exitDir;
     }
 
     public void print() {

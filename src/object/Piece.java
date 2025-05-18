@@ -1,3 +1,4 @@
+package object;
 public class Piece {
     public char id;
     public int row;
