@@ -17,7 +17,8 @@ public class Main {
         while (board == null) {
             System.out.print("Masukkan nama file input (misal: input1): ");
             String filename = sc.nextLine().trim();
-            String path = "test/input/" + filename + ".txt";
+            String baseDir = System.getProperty("user.dir");
+            String path = baseDir + File.separator + "test" + File.separator + "input" + File.separator + filename + ".txt";
 
             try {
                 board = Input.readBoardFromFile(path);
