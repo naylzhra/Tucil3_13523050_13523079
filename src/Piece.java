@@ -6,6 +6,9 @@ public class Piece {
     public boolean isHorizontal;
     public boolean isPrimary;
 
+    public static final String RESET = "\u001B[0m";
+    public static final String RED = "\u001B[31m";
+
     public Piece(char id, int row, int col, boolean isHorizontal, boolean isPrimary) {
         this.id = id;
         this.row = row;
@@ -44,4 +47,18 @@ public class Piece {
         }
         return new Piece(id, newRow, newCol, length, isHorizontal, isPrimary);
     }
+
+    public void print() {
+    String info = "Piece " + id +
+                " at (" + row + "," + col + "), len=" + length +
+                ", " + (isHorizontal ? "Horizontal" : "Vertical") +
+                (isPrimary ? ", Primary" : "");
+        if (isPrimary) {
+            System.out.println(RED + info + RESET);
+        } else {
+            System.out.println(info);
+        }
+    }
+
+
 }

@@ -19,4 +19,15 @@ public class Node implements Comparable<Node> {
     public int compareTo(Node other) {
         return Integer.compare(this.f, other.f);
     }
+
+    public void print() {
+        System.out.println("=== NODE INFO ===");
+        System.out.println("g(n): " + g + ", h(n): " + h + ", f(n): " + f);
+        System.out.println("Move: " + (move != null ? move : "START"));
+        System.out.println("Board:");
+        board.print();
+        System.out.println("=================");
+    }
+
+
 }
