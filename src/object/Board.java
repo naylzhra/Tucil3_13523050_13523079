@@ -1,5 +1,4 @@
 package object;
-package object;
 import java.util.List;
 
 public class Board {
