@@ -1,3 +1,4 @@
+package object;
 public class Node implements Comparable<Node> {
     public Board board;
     public Node parent;

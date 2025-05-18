@@ -1,6 +1,10 @@
 import java.io.*;
 import java.util.*;
 
+import object.Board;
+import object.Piece;
+import utils.Input;
+
 public class Main {
     public static void main(String[] args) throws IOException {
         System.out.println("=========================================================================");

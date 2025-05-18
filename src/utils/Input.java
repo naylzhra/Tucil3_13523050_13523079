@@ -1,6 +1,10 @@
+package utils;
 import java.io.*;
 import java.util.*;
 import java.util.function.BiConsumer;
+
+import object.Board;
+import object.Piece;
 
 public class Input { 
     public static Board readBoardFromFile(String filename) throws IOException {
