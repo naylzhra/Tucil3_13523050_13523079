@@ -17,8 +17,7 @@ public class Main {
         while (board == null) {
             System.out.print("Masukkan nama file input (misal: input1): ");
             String filename = sc.nextLine().trim();
-            String baseDir = System.getProperty("user.dir");
-            String path = baseDir + File.separator + "test" + File.separator + "input" + File.separator + filename + ".txt";
+            String path = "test/input/" + filename + ".txt";
 
             try {
                 board = Input.readBoardFromFile(path);
@@ -51,63 +50,6 @@ public class Main {
             System.out.println();
         }
 
-        //debugging
-        cekValidasiBoardDanPiece(board);
-
 
     }
-
-    // hasil gpt untuk debug
-    public static void cekValidasiBoardDanPiece(Board board) {
-    System.out.println("\n===== CEK ATRIBUT BOARD =====");
-    System.out.println("Ukuran board (height x width): " + board.height + " x " + board.width);
-    System.out.println("Posisi goal: (" + board.goalRow + ", " + board.goalCol + ")");
-    System.out.println("Jumlah piece: " + board.pieces.size());
-
-    // Print grid
-    System.out.println("Isi grid:");
-    for (int i = 0; i < board.height; i++) {
-        for (int j = 0; j < board.width; j++) {
-            System.out.print(board.grid[i][j]);
-        }
-        System.out.println();
-    }
-
-    System.out.println("\n===== CEK ATRIBUT PIECE =====");
-    for (Piece p : board.pieces) {
-        System.out.println("ID: " + p.id + ", Start: (" + p.row + "," + p.col + "), Panjang: " + p.length +
-                           ", " + (p.isHorizontal ? "Horizontal" : "Vertikal") +
-                           ", Primary: " + p.isPrimary);
-
-        // Cek validasi posisi
-        boolean outOfBounds = false;
-        if (p.isHorizontal) {
-            if (p.col < 0 || p.col + p.length > board.width || p.row < 0 || p.row >= board.height) {
-                outOfBounds = true;
-            }
-        } else {
-            if (p.row < 0 || p.row + p.length > board.height || p.col < 0 || p.col >= board.width) {
-                outOfBounds = true;
-            }
-        }
-        if (outOfBounds) {
-            System.out.println("⚠️  WARNING: Piece " + p.id + " berada di luar batas board!");
-        }
-    }
-
-    // Cek minimal satu primary block
-    boolean adaPrimary = false;
-    for (Piece p : board.pieces) {
-        if (p.isPrimary) adaPrimary = true;
-    }
-    if (!adaPrimary) {
-        System.out.println("⚠️  WARNING: Tidak ada blok utama (primary block) di board!");
-    }
-
-    // Cek grid kosong
-    if (board.grid == null || board.grid.length == 0) {
-        System.out.println("⚠️  WARNING: Grid board kosong!");
-    }
-}
-
 }
