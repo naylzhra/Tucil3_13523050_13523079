@@ -1,7 +1,7 @@
 package algo;
 
 import object.Board;
-import object.Piece;;
+import object.Piece;
 
 public final class Heuristic {
     public static int blockingDistance(Board b) {

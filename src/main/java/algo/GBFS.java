@@ -39,17 +39,22 @@ public class GBFS {
         if (p == null)
             return false;
 
-        return switch (b.exitDir) {
-            case 'R' -> p.isHorizontal && p.row == b.goalRow &&
-                    p.col + p.length == b.goalCol;
-            case 'L' -> p.isHorizontal && p.row == b.goalRow &&
-                    p.col == b.goalCol + 1;
-            case 'D' -> !p.isHorizontal && p.col == b.goalCol &&
-                    p.row + p.length == b.goalRow;
-            case 'U' -> !p.isHorizontal && p.col == b.goalCol &&
-                    p.row == b.goalRow + 1;
-            default -> false;
-        };
+        switch (b.exitDir) {
+            case 'R':
+                return p.isHorizontal && p.row == b.goalRow &&
+                        p.col + p.length == b.goalCol;
+            case 'L':
+                return p.isHorizontal && p.row == b.goalRow &&
+                        p.col == b.goalCol + 1;
+            case 'D':
+                return !p.isHorizontal && p.col == b.goalCol &&
+                        p.row + p.length == b.goalRow;
+            case 'U':
+                return !p.isHorizontal && p.col == b.goalCol &&
+                        p.row == b.goalRow + 1;
+            default:
+                return false;
+        }
     }
 
     static List<Node> expand(Node n, boolean useHeuristic) {

@@ -1,9 +1,8 @@
+package cli;
 import java.io.*;
 import java.util.*;
 
-import object.Board;
-import object.Piece;
-import object.Node;
+import object.*;
 import algo.GBFS;
 import utils.Input;
 
