@@ -54,12 +54,10 @@ public class Piece {
                     " at (" + row + "," + col + "), len=" + length +
                     ", " + (isHorizontal ? "Horizontal" : "Vertical") +
                     (isPrimary ? ", Primary" : "");
-            if (isPrimary) {
-                System.out.println(RED + info + RESET);
-            } else {
-                System.out.println(info);
-            }
+        if (isPrimary) {
+            System.out.println(RED + info + RESET);
+        } else {
+            System.out.println(info);
         }
-
-
+    }
 }

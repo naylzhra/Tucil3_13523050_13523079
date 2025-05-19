@@ -104,5 +104,19 @@ public class Board {
         return false;
     }
 
+    public Piece getPrimaryPiece() {
+        for (Piece p : pieces) {
+            if (p.isPrimary) {
+                return p;
+            }
+        }
+        return null;
+    }
+    public int getGoalRow() {
+        return goalRow;
+    }
 
+    public int getGoalCol() {
+        return goalCol;
+    }
 }
