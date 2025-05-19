@@ -50,16 +50,16 @@ public class Piece {
     }
 
     public void print() {
-    String info = "Piece " + id +
-                " at (" + row + "," + col + "), len=" + length +
-                ", " + (isHorizontal ? "Horizontal" : "Vertical") +
-                (isPrimary ? ", Primary" : "");
-        if (isPrimary) {
-            System.out.println(RED + info + RESET);
-        } else {
-            System.out.println(info);
+        String info = "Piece " + id +
+                    " at (" + row + "," + col + "), len=" + length +
+                    ", " + (isHorizontal ? "Horizontal" : "Vertical") +
+                    (isPrimary ? ", Primary" : "");
+            if (isPrimary) {
+                System.out.println(RED + info + RESET);
+            } else {
+                System.out.println(info);
+            }
         }
-    }
 
 
 }
