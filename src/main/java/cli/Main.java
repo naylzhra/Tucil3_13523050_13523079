@@ -1,6 +1,7 @@
 package cli;
 import algo.AStar;
 import algo.GBFS;
+import algo.UCS;
 import java.io.*;
 import java.util.*;
 
@@ -61,39 +62,30 @@ public class Main {
         cekValidasiBoardDanPiece(board);
 
         long t0, t1;
-        Node goal;
+        Node goal = null;
         List<Node> path;
+        t0 = System.currentTimeMillis();
         switch(algorithm){
             case "GBFS":
                 System.out.println("\n\nMenggunakan algoritma Greedy Best First Search (GBFS)");
-                t0 = System.currentTimeMillis();
                 goal = GBFS.solve(board);
-                t1 = System.currentTimeMillis();
-                if (goal == null) {
-                    System.out.println("❌  Tidak ada solusi.");
-                    break;
-                }
-                path = goal.getPath();
-                System.out.println("\nSolved in " + (path.size()-1) + " moves, " + (t1 - t0) + " ms\n");
-                printSteps(path);
                 break;
             case "UCS":
                 System.out.println("Menggunakan algoritma Uniform Cost Search (UCS)");
+                goal = UCS.solve(board);
                 break;
             case "A*":
-                System.out.println("Menggunakan algoritma A*");System.out.println("\n\nMenggunakan algoritma Greedy Best First Search (GBFS)");
-                t0 = System.currentTimeMillis();
+                System.out.println("Menggunakan algoritma A*");
                 goal = AStar.solve(board);
-                t1 = System.currentTimeMillis();
-                if (goal == null) {
-                    System.out.println("❌  Tidak ada solusi.");
-                    break;
-                }
-                path = goal.getPath();
-                System.out.println("\nSolved in " + (path.size()-1) + " moves, " + (t1 - t0) + " ms\n");
-                printSteps(path);
                 break;
         }
+        t1 = System.currentTimeMillis();
+        if (goal == null) {
+            System.out.println("❌  Tidak ada solusi.");
+        }
+        path = goal.getPath();
+        System.out.println("\nSolved in " + (path.size()-1) + " moves, " + (t1 - t0) + " ms\n");
+        printSteps(path);
     }
 
     public static void printSteps(List<Node> path){
