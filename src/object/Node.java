@@ -5,7 +5,6 @@ public class Node implements Comparable<Node> {
     public String move;    
     public int g;          // g(n)
     public int h;          // h(n)
-    public int f;          // g(n) + h(n)
 
     public Node(Board board, Node parent, String move, int g, int h) {
         this.board = board;
@@ -13,17 +12,20 @@ public class Node implements Comparable<Node> {
         this.move = move;
         this.g = g;
         this.h = h;
-        this.f = g + h;
+    }
+
+    public int f() {
+        return g + h;
     }
 
     @Override
     public int compareTo(Node other) {
-        return Integer.compare(this.f, other.f);
+        return Integer.compare(this.f(), other.f());
     }
 
     public void print() {
         System.out.println("=== NODE INFO ===");
-        System.out.println("g(n): " + g + ", h(n): " + h + ", f(n): " + f);
+        System.out.println("g(n): " + g + ", h(n): " + h + ", f(n): " + f());
         System.out.println("Move: " + (move != null ? move : "START"));
         System.out.println("Board:");
         board.print();
