@@ -1,10 +1,10 @@
+import algo.AStar;
+import algo.GBFS;
 import java.io.*;
 import java.util.*;
-
 import object.Board;
-import object.Piece;
 import object.Node;
-import algo.GBFS;
+import object.Piece;
 import utils.Input;
 
 public class Main {
@@ -58,34 +58,50 @@ public class Main {
         //debugging
         cekValidasiBoardDanPiece(board);
 
+        long t0, t1;
+        Node goal;
+        List<Node> path;
         switch(algorithm){
             case "GBFS":
                 System.out.println("\n\nMenggunakan algoritma Greedy Best First Search (GBFS)");
-                long t0 = System.currentTimeMillis();
-                Node goal = GBFS.solve(board);
-                long t1 = System.currentTimeMillis();
+                t0 = System.currentTimeMillis();
+                goal = GBFS.solve(board);
+                t1 = System.currentTimeMillis();
                 if (goal == null) {
                     System.out.println("❌  Tidak ada solusi.");
                     break;
                 }
-                List<Node> path = goal.getPath();
+                path = goal.getPath();
                 System.out.println("\nSolved in " + (path.size()-1) + " moves, " + (t1 - t0) + " ms\n");
-
-                for (int i = 0; i < path.size(); i++) {
-                    Node n = path.get(i);
-                    System.out.println("Step " + i + (n.move == null ? " (START)" : " : " + n.move));
-                    n.board.print();
-                    System.out.println();
-                }
+                printSteps(path);
                 break;
             case "UCS":
                 System.out.println("Menggunakan algoritma Uniform Cost Search (UCS)");
                 break;
             case "A*":
-                System.out.println("Menggunakan algoritma A*");
+                System.out.println("Menggunakan algoritma A*");System.out.println("\n\nMenggunakan algoritma Greedy Best First Search (GBFS)");
+                t0 = System.currentTimeMillis();
+                goal = AStar.solve(board);
+                t1 = System.currentTimeMillis();
+                if (goal == null) {
+                    System.out.println("❌  Tidak ada solusi.");
+                    break;
+                }
+                path = goal.getPath();
+                System.out.println("\nSolved in " + (path.size()-1) + " moves, " + (t1 - t0) + " ms\n");
+                printSteps(path);
                 break;
         }
     }
+
+    public static void printSteps(List<Node> path){
+        for (int i = 0; i < path.size(); i++) {
+            Node n = path.get(i);
+            System.out.println("Step " + i + (n.move == null ? " (START)" : " : " + n.move));
+            n.board.print();
+            System.out.println();
+        }
+    } 
 
     // hasil gpt untuk debug
     public static void cekValidasiBoardDanPiece(Board board) {
