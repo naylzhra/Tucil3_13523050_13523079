@@ -3,6 +3,8 @@ import java.util.*;
 
 import object.Board;
 import object.Piece;
+import object.Node;
+import algo.GBFS;
 import utils.Input;
 
 public class Main {
@@ -55,6 +57,22 @@ public class Main {
         }
         //debugging
         cekValidasiBoardDanPiece(board);
+
+        switch(algorithm){
+            case "GBFS":
+                System.out.println("Menggunakan algoritma Greedy Best First Search (GBFS)");
+                long t0 = System.currentTimeMillis();
+                Node goal = GBFS.solve(board);
+                long t1 = System.currentTimeMillis();
+                goal.print();
+                break;
+            case "UCS":
+                System.out.println("Menggunakan algoritma Uniform Cost Search (UCS)");
+                break;
+            case "A*":
+                System.out.println("Menggunakan algoritma A*");
+                break;
+        }
     }
 
     // hasil gpt untuk debug
