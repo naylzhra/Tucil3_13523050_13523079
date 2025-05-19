@@ -1,9 +1,11 @@
 gui\RushHourApp$1.class
 gui\RushHourApp.class
 object\Board.class
+cli\Main.class
 module-info.class
 object\Piece.class
 object\Node.class
-algo\Heuristic.class
 algo\GBFS.class
 utils\Input.class
+algo\AStar.class
+algo\Helper.class

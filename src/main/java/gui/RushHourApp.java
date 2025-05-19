@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import java.util.List;
 import object.Board;
 import object.Piece;
+import algo.AStar;
 import algo.GBFS;
 import utils.Input;
 
@@ -35,7 +36,7 @@ public class RushHourApp extends Application {
         Button loadBtn  = new Button("Load Board");
         Button solveBtn = new Button("Solve");
         algoChoice      = new ComboBox<>();
-        algoChoice.getItems().addAll("GBFS (Greedy)" /*"UCS", "A*"*/);
+        algoChoice.getItems().addAll("GBFS (Greedy)", "A*" /*"UCS", "A*"*/);
         algoChoice.getSelectionModel().selectFirst();
 
         HBox controlBar = new HBox(10, loadBtn, algoChoice, solveBtn);
@@ -59,7 +60,6 @@ public class RushHourApp extends Application {
         stage.setScene(scene);
         stage.show();
 
-        /* ---------- Event handlers ---------- */
         loadBtn.setOnAction(e -> loadBoard(stage));
         solveBtn.setOnAction(e -> runSolver());
     }
@@ -84,10 +84,17 @@ public class RushHourApp extends Application {
             return;
         }
         moveList.getItems().setAll("⏳ solving …");
-        /* long-running search ==> background thread */
         Task<object.Node> task = new Task<>() {
             @Override protected object.Node call() {
-                return GBFS.solve(currentBoard);   // swap when you add UCS/A*
+                String algo = algoChoice.getValue();
+                if (algo.equals("GBFS (Greedy)")) {
+                    return GBFS.solve(currentBoard);
+                } else if (algo.equals("A*")) {
+                    return AStar.solve(currentBoard);
+                } // else if (algo.equals("UCS")) {
+                //     return UCS.solve(currentBoard);
+                // }
+                return null;
             }
         };
         task.setOnSucceeded(e -> {
@@ -96,7 +103,7 @@ public class RushHourApp extends Application {
                 moveList.getItems().setAll("❌ No solution");
                 return;
             }
-            List<object.Node> path = goal.getPath(); // add method in Node if missing
+            List<object.Node> path = goal.getPath();
             List<Board> boards = path.stream().map(n -> n.board).toList();
             List<String> moves  = path.stream().map(n -> n.move == null ? "Start" : n.move).toList();
             moveList.getItems().setAll(moves);
@@ -109,9 +116,7 @@ public class RushHourApp extends Application {
         new Thread(task).start();
     }
 
-    /* --------------------------------------------------------------------- */
-    /* ---------------------------  Rendering  ----------------------------- */
-    /* --------------------------------------------------------------------- */
+    // render
     private void drawBoard(Board b) {
         double w = b.width * CELL;
         double h = b.height * CELL;
@@ -121,14 +126,12 @@ public class RushHourApp extends Application {
         GraphicsContext g = boardCanvas.getGraphicsContext2D();
         g.clearRect(0,0,w,h);
 
-        /* grid */
         g.setStroke(Color.LIGHTGRAY);
         for (int r = 0; r <= b.height; r++)
             g.strokeLine(0, r*CELL, w, r*CELL);
         for (int c = 0; c <= b.width; c++)
             g.strokeLine(c*CELL, 0, c*CELL, h);
 
-        /* pieces */
         for (Piece p : b.pieces) {
             Color col = p.isPrimary ? Color.CRIMSON : Color.CADETBLUE;
             g.setFill(col);
@@ -140,7 +143,7 @@ public class RushHourApp extends Application {
         }
     }
 
-    /* simple step-by-step playback */
+    // animasi steps
     private void animate(java.util.List<object.Board> path) {
         new Thread(() -> {
             for (object.Board b : path) {
