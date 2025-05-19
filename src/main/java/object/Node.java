@@ -32,15 +32,5 @@ public class Node implements Comparable<Node> {
         for(Node n = this; n != null; n = n.parent) list.addFirst(n);
         return list;
     }
-   
-    public void print() {
-        System.out.println("=== NODE INFO ===");
-        System.out.println("g(n): " + g + ", h(n): " + h + ", f(n): " + f());
-        System.out.println("Move: " + (move != null ? move : "START"));
-        System.out.println("Board:");
-        board.print();
-        System.out.println("=================");
-    }
-
 
 }

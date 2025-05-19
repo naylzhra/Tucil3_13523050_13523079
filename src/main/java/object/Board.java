@@ -14,6 +14,10 @@ public class Board {
 
     public static final String RESET = "\u001B[0m";
     public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
+    public static final String BG_YELLOW = "\u001B[43m";
+    public static final String BLUE = "\u001B[34m";
+
 
     public Board(char[][] grid, List<Piece> pieces, int goalRow, int goalCol, char exitDir) {
         this.height = grid.length;
@@ -26,32 +30,49 @@ public class Board {
         this.exitDir = exitDir;
     }
 
-    public void print() {
+    public void print(boolean isFinished, char movedId, boolean[][] oldMask) {
         System.out.println("Board (" + height + " x " + width + "), Goal at (" + goalRow + ", " + goalCol + ")");
         System.out.println("Grid:");
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                char c = grid[i][j];
-                boolean isPrimary = false;
-                // Find if c is a primary piece (by id)
-                for (Piece p : pieces) {
-                    if (p.id == c && p.isPrimary) {
-                        isPrimary = true;
-                        break;
-                    }
-                }
-                if (isPrimary) {
-                    System.out.print(RED + c + RESET);
-                } else {
-                    System.out.print(c);
-                } 
+        if (exitDir == 'U') {
+            for (int i = 0; i < width; i++) {
+                if (i == goalCol) System.err.print(GREEN + 'K' + RESET);
+                else System.out.print(' ');
             }
             System.out.println();
         }
-        // System.out.println("Pieces:");
-        // for (Piece p : pieces) {
-        //     p.print();
-        // }
+        for (int i = 0; i < height; i++) {
+            if (exitDir == 'L'){
+                if (i == goalRow) System.err.print(GREEN + 'K' + RESET);
+            } else {
+                for (int j = 0; j < width; j++) {
+                    char ch = grid[i][j];
+                    boolean highlightedNow = (ch == movedId);
+                    boolean highlightedOld = (oldMask != null && oldMask[i][j]);
+
+                    if (highlightedNow) {
+                        System.out.print(BG_YELLOW + BLUE + ch + RESET);
+                    } else if (highlightedOld) {
+                        System.out.print(BG_YELLOW + ch + RESET);  
+                    } else {
+                        boolean primary = false;
+                        for (Piece p : pieces)
+                            if (p.id == ch && p.isPrimary) { primary = true; break; }
+                        System.out.print(primary ? RED + ch + RESET : ch);
+                    }
+                }
+            }
+            if (exitDir == 'R'){
+                if (i == goalRow) System.err.print(GREEN + 'K' + RESET);
+            }
+            System.out.println();
+        }
+        if (exitDir == 'D') {
+            for (int i = 0; i < width; i++) {
+                if (i == goalCol) System.err.print(GREEN + 'K' + RESET);
+                else System.out.print(' ');
+            }
+            System.out.println();
+        }
     }
 
     @Override

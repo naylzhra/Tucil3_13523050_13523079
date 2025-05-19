@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Set;
+
 import object.Board;
 import object.Node;
 
@@ -15,7 +16,7 @@ public class UCS {
         while (!simpulHidup.isEmpty()) {
             Node current = simpulHidup.poll();
             String hash = current.board.toString();
-            if (!visited.add(current.board)) continue; 
+            if (!visited.add(hash)) continue; 
             if (Helper.isGoal(current.board)) {
                 return current;
             }

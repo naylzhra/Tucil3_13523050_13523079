@@ -1,13 +1,15 @@
 package cli;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.List;
+import java.util.Scanner;
+
 import algo.AStar;
 import algo.GBFS;
 import algo.UCS;
-import java.io.*;
-import java.util.*;
-
 import object.Board;
-import object.Piece;
 import object.Node;
+import object.Piece;
 import utils.Input;
 
 public class Main {
@@ -54,7 +56,11 @@ public class Main {
         System.out.println("Papan Awal:");
         for (int i = 0; i < board.height; i++) {
             for (int j = 0; j < board.width; j++) {
+                if (i == board.goalRow && j == board.goalCol) {
+                System.out.print('K'); 
+            } else {
                 System.out.print(board.grid[i][j]);
+            }
             }
             System.out.println();
         }
@@ -88,14 +94,28 @@ public class Main {
         printSteps(path);
     }
 
-    public static void printSteps(List<Node> path){
+    public static void printSteps(List<Node> path) {
+        Node prev = null;
         for (int i = 0; i < path.size(); i++) {
-            Node n = path.get(i);
-            System.out.println("Step " + i + (n.move == null ? " (START)" : " : " + n.move));
-            n.board.print();
+            Node cur = path.get(i);
+            char id = (cur.move != null && !cur.move.isEmpty()) ? cur.move.charAt(0) : '\0';
+            boolean[][] oldMask = null;
+            if (prev != null && id != '\0') {
+                Board prevBoard = prev.board;
+                oldMask = new boolean[prevBoard.height][prevBoard.width];
+                for (int r = 0; r < prevBoard.height; r++)
+                    for (int c = 0; c < prevBoard.width; c++)
+                        if (prevBoard.grid[r][c] == id) oldMask[r][c] = true;
+            }
+
+            System.out.println("Step " + i + (cur.move == null ? " (START)" : " : " + cur.move));
+            boolean showExit = (i == path.size() - 1);
+            cur.board.print(showExit, id, oldMask);  
             System.out.println();
+            prev = cur;   
         }
-    } 
+    }
+
 
     // hasil gpt untuk debug
     public static void cekValidasiBoardDanPiece(Board board) {
