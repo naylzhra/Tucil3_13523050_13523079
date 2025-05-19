@@ -1,10 +1,12 @@
+package cli;
 import algo.AStar;
 import algo.GBFS;
 import java.io.*;
 import java.util.*;
+
 import object.Board;
-import object.Node;
 import object.Piece;
+import object.Node;
 import utils.Input;
 
 public class Main {
