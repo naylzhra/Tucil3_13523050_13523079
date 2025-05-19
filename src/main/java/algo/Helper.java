@@ -28,7 +28,7 @@ public final class Helper {
         return distance + blockers;
     }
 
-    static boolean isGoal(Board b) {
+    public static boolean isGoal(Board b) {
         Piece p = b.getPrimaryPiece();
         if (p == null) return false;
         switch (b.exitDir) {
@@ -49,7 +49,7 @@ public final class Helper {
         }
     }
 
-    static List<Node> expand(Node n, boolean useHeuristic, boolean useG) {
+    public static List<Node> expand(Node n, boolean useHeuristic, boolean useG) {
         List<Node> childs = new ArrayList<>();
         Board b = n.board;
 
