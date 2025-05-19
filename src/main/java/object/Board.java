@@ -10,6 +10,8 @@ public class Board {
     public int goalRow, goalCol;
     public char exitDir;
 
+    public static final char EMPTY = '.';
+
     public static final String RESET = "\u001B[0m";
     public static final String RED = "\u001B[31m";
 
@@ -52,6 +54,25 @@ public class Board {
         // }
     }
 
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder(height * (width + 1));
+        for (int r = 0; r < height; r++) {
+            for (int c = 0; c < width; c++) {
+                char ch = grid[r][c];
+                sb.append(ch == EMPTY ? EMPTY : ch);
+            }
+            sb.append('/');                   // pemisah baris
+        }
+        sb.append(exitDir);                   // agar beda sisi exit beda hash
+        return sb.toString();
+    }
+
+    @Override public int hashCode() { return toString().hashCode(); }
+    @Override public boolean equals(Object o){
+        return (o instanceof Board b) && this.toString().equals(b.toString());
+    }
+
     public Board applyMove(Piece p, String dir) {
         char[][] newGrid = new char[height][width];
         for (int i = 0; i < height; i++) {
@@ -66,9 +87,9 @@ public class Board {
 
                 for (int i = 0; i < piece.length; i++) {
                     if (piece.isHorizontal) {
-                        newGrid[piece.row][piece.col + i] = '.';
+                        newGrid[piece.row][piece.col + i] = EMPTY;
                     } else {
-                        newGrid[piece.row + i][piece.col] = '.';
+                        newGrid[piece.row + i][piece.col] = EMPTY;
                     }
                 }
 
@@ -90,15 +111,15 @@ public class Board {
     public boolean canMove(Piece p, String dir) {
         if (p.isHorizontal) {
             if (dir.equals("L")) {
-                if (p.col - 1 >= 0 && grid[p.row][p.col - 1] == '.') return true;
+                if (p.col - 1 >= 0 && grid[p.row][p.col - 1] == EMPTY) return true;
             } else if (dir.equals("R")) {
-                if (p.col + p.length < width && grid[p.row][ p.col + p.length] == '.') return true;
+                if (p.col + p.length < width && grid[p.row][ p.col + p.length] == EMPTY) return true;
             }
         } else { 
             if (dir.equals("U")) {
-                if (p.row - 1 >= 0 && grid[p.row - 1][p.col] == '.') return true;
+                if (p.row - 1 >= 0 && grid[p.row - 1][p.col] == EMPTY) return true;
             } else if (dir.equals("D")) {
-                if (p.row + p.length < height && grid[p.row + p.length][p.col] == '.') return true;
+                if (p.row + p.length < height && grid[p.row + p.length][p.col] == EMPTY) return true;
             }
         }
         return false;

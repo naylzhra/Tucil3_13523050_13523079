@@ -74,7 +74,7 @@ public final class Helper {
             next = next.applyMove(currentPiece, dir);
             int h = heuristic ? Helper.blockingDistance(next) : 0;
             String mv = p.id + " " + dir + " " + step;
-            if (useG) out.add(new Node(next, current, mv, current.g + step, h));
+            if (useG) out.add(new Node(next, current, mv, current.g + 1, h));
             else out.add(new Node(next, current, mv, 0, h));
             currentPiece = next.pieces.stream().filter(pc -> pc.id == p.id).findFirst().get();
         }
