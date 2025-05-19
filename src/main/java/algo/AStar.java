@@ -8,7 +8,7 @@ import object.Node;
 
 public class AStar {
     public static Node solve(Board start) {
-        PriorityQueue<Node> simpulHidup = new PriorityQueue<>(Comparator.comparingInt(node -> node.h));
+        PriorityQueue<Node> simpulHidup = new PriorityQueue<>(Comparator.comparingInt(node -> node.f()));
         Set<String> visited = new HashSet<>();
         int h0 = Helper.blockingDistance(start);
         simpulHidup.add(new Node(start, null, null, 0, h0));

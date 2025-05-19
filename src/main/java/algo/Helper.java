@@ -30,20 +30,23 @@ public final class Helper {
 
     static boolean isGoal(Board b) {
         Piece p = b.getPrimaryPiece();
-        if (p == null)
-            return false;
-
-        return switch (b.exitDir) {
-            case 'R' -> p.isHorizontal && p.row == b.goalRow &&
+        if (p == null) return false;
+        switch (b.exitDir) {
+            case 'R':
+                return p.isHorizontal && p.row == b.goalRow &&
                     p.col + p.length == b.goalCol;
-            case 'L' -> p.isHorizontal && p.row == b.goalRow &&
+            case 'L':
+                return p.isHorizontal && p.row == b.goalRow &&
                     p.col == b.goalCol + 1;
-            case 'D' -> !p.isHorizontal && p.col == b.goalCol &&
+            case 'D':
+                return !p.isHorizontal && p.col == b.goalCol &&
                     p.row + p.length == b.goalRow;
-            case 'U' -> !p.isHorizontal && p.col == b.goalCol &&
+            case 'U':
+                return !p.isHorizontal && p.col == b.goalCol &&
                     p.row == b.goalRow + 1;
-            default -> false;
-        };
+            default:
+                return false;
+        }
     }
 
     static List<Node> expand(Node n, boolean useHeuristic, boolean useG) {
