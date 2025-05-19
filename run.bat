@@ -2,6 +2,6 @@
 
 if not exist bin mkdir bin
 
-javac -d bin src\object\*.java src\utils\*.java src\algo\*.java src\Main.java
+javac -d bin src\main\java\object\*.java src\main\java\utils\*.java src\main\java\algo\*.java src\main\java\cli\Main.java
 
-java -cp bin Main
+java -cp bin cli.Main
