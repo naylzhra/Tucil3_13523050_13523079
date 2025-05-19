@@ -46,10 +46,10 @@ public class Board {
             }
             System.out.println();
         }
-        System.out.println("Pieces:");
-        for (Piece p : pieces) {
-            p.print();
-        }
+        // System.out.println("Pieces:");
+        // for (Piece p : pieces) {
+        //     p.print();
+        // }
     }
 
     public Board applyMove(Piece p, String dir) {

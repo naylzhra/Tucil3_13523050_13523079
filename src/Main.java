@@ -60,11 +60,23 @@ public class Main {
 
         switch(algorithm){
             case "GBFS":
-                System.out.println("Menggunakan algoritma Greedy Best First Search (GBFS)");
+                System.out.println("\n\nMenggunakan algoritma Greedy Best First Search (GBFS)");
                 long t0 = System.currentTimeMillis();
                 Node goal = GBFS.solve(board);
                 long t1 = System.currentTimeMillis();
-                goal.print();
+                if (goal == null) {
+                    System.out.println("❌  Tidak ada solusi.");
+                    break;
+                }
+                List<Node> path = goal.getPath();
+                System.out.println("\nSolved in " + (path.size()-1) + " moves, " + (t1 - t0) + " ms\n");
+
+                for (int i = 0; i < path.size(); i++) {
+                    Node n = path.get(i);
+                    System.out.println("Step " + i + (n.move == null ? " (START)" : " : " + n.move));
+                    n.board.print();
+                    System.out.println();
+                }
                 break;
             case "UCS":
                 System.out.println("Menggunakan algoritma Uniform Cost Search (UCS)");
