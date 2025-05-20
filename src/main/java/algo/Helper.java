@@ -41,7 +41,7 @@ public final class Helper {
                 }
             }
         }
-        System.out.println("Distance: " + distance + ", Blockers: " + blockers);
+        // System.out.println("Distance: " + distance + ", Blockers: " + blockers);
         return distance + blockers;
     }
 
