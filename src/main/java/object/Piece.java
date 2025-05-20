@@ -36,7 +36,7 @@ public class Piece {
         this.length += 1; // aku mikirnya untuk input piece yg vertikal, setiap nemu lg char dgn id yang sudah ada, lengthnya ditambah
     }
 
-    public Piece move(String direction) { // return piece karena untuk setiap state akan dibuat board baru, tp blm diskusi
+    public Piece move(String direction) { // return piece karena untuk setiap state akan dibuat board baru
         int newRow = this.row;
         int newCol = this.col;
         if (isHorizontal) {

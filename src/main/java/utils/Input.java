@@ -44,7 +44,7 @@ public class Input {
             } else if (line.length() == col + 1 && line.charAt(col) == 'K') {
                 exitDir = 'R';
                 goalCol = col;
-                line = line.substring(0, col); // keep only the board cells
+                line = line.substring(0, col);
             }
 
             for (int j = 0; j < col; j++) {

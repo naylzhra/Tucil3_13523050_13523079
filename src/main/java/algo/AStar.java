@@ -9,7 +9,6 @@ import object.Node;
 
 public class AStar {
     public static SolveResult solve(Board start, int mode) {
-        //List<Object> result = new ArrayList<Object>();
         PriorityQueue<Node> simpulHidup = new PriorityQueue<>(Comparator.comparingInt(node -> node.f()));
         Set<String> visited = new HashSet<>();
         int h0 = Helper.heuristic(start, mode);
