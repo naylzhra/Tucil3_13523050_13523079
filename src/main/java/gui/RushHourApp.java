@@ -19,6 +19,7 @@ import object.Board;
 import object.Piece;
 import algo.AStar;
 import algo.GBFS;
+import algo.Helper;
 import algo.UCS;
 import algo.SolveResult;
 import utils.Input;
@@ -138,34 +139,57 @@ public class RushHourApp extends Application {
 
     // render
     private void drawBoard(Board b) {
-        double w = b.width * CELL;
-        double h = b.height * CELL;
+        drawBoard(b, false);
+    }
+
+    private void drawBoard(Board b, boolean hidePrimary) {
+        int topExtra    = (b.getGoalRow()  < 0)         ? 1 : 0;
+        int bottomExtra = (b.getGoalRow()  >= b.height) ? 1 : 0;
+        int leftExtra   = (b.getGoalCol()  < 0)         ? 1 : 0;
+        int rightExtra  = (b.getGoalCol()  >= b.width)  ? 1 : 0;
+        double w = (b.width  + leftExtra + rightExtra) * CELL;
+        double h = (b.height + topExtra + bottomExtra) * CELL;
         boardCanvas.setWidth(w);
         boardCanvas.setHeight(h);
 
         GraphicsContext g = boardCanvas.getGraphicsContext2D();
         g.clearRect(0,0,w,h);
 
+        double offsetX = leftExtra * CELL;
+        double offsetY = topExtra  * CELL;
+
         g.setStroke(Color.LIGHTGRAY);
-        for (int r = 0; r <= b.height; r++) g.strokeLine(0, r*CELL, w, r*CELL);
-        for (int c = 0; c <= b.width; c++) g.strokeLine(c*CELL, 0, c*CELL, h);
+        for (int r = 0; r <= b.height; r++) g.strokeLine(offsetX, offsetY + r * CELL, offsetX + b.width * CELL, offsetY + r * CELL);
+        for (int c = 0; c <= b.width; c++) g.strokeLine(offsetX + c * CELL, offsetY, offsetX + c * CELL, offsetY + b.height * CELL);
+
+        int gateRow = b.getGoalRow() + topExtra;
+        int gateCol = b.getGoalCol() + leftExtra;
+        g.setFill(Color.LIGHTGRAY);
+        g.fillRect(gateCol * CELL, gateRow * CELL, CELL, CELL);
+        g.setFill(Color.BLACK);
+        g.setFont(javafx.scene.text.Font.font(24));
+        g.setTextAlign(javafx.scene.text.TextAlignment.CENTER);
+        g.setTextBaseline(javafx.geometry.VPos.CENTER);
+        g.fillText("K", gateCol * CELL + CELL/2, gateRow * CELL + CELL/2);
 
         for (Piece p : b.pieces) {
+            if (hidePrimary && p.isPrimary) continue;   // ‼ skip when asked
+
             Color col = p.isPrimary ? Color.CRIMSON : Color.CADETBLUE;
-            double x = p.col * CELL + 2;
-            double y = p.row * CELL + 2;
+            double x  = offsetX + p.col * CELL + 2;
+            double y  = offsetY + p.row * CELL + 2;
             double pw = (p.isHorizontal ? p.length : 1) * CELL - 4;
             double ph = (p.isHorizontal ? 1 : p.length) * CELL - 4;
+
             g.setFill(col);
             g.fillRoundRect(x, y, pw, ph, 8, 8);
-            
+
             g.setFill(Color.WHITE);
             g.setFont(javafx.scene.text.Font.font(18));
             g.setTextAlign(javafx.scene.text.TextAlignment.CENTER);
             g.setTextBaseline(javafx.geometry.VPos.CENTER);
             g.fillText(String.valueOf(p.id), x + pw / 2, y + ph / 2);
         }
-
     }
 
     // animasi steps
@@ -174,6 +198,10 @@ public class RushHourApp extends Application {
             for (object.Board b : path) {
                 Platform.runLater(() -> drawBoard(b));
                 try { Thread.sleep(400); } catch (InterruptedException ignored) {}
+            }
+            Board last = path.get(path.size() - 1);
+            if (Helper.isGoal(last)) {
+                Platform.runLater(() -> drawBoard(last, true));
             }
         }).start();
     }
