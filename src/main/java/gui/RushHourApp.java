@@ -96,6 +96,9 @@ public class RushHourApp extends Application {
             currentBoard = Input.readBoardFromFile(f.getAbsolutePath());
             drawBoard(currentBoard);
             moveList.getItems().clear();
+            visitedLabel.setText("Visited: 0");
+            timeLabel.setText("Time: 0 ms");
+            stepLabel.setText("Step: 0");
         } catch (Exception ex) {
             showErr("Failed to load board:\n" + ex.getMessage());
         }
