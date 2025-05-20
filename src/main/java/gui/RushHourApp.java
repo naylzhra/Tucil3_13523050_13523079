@@ -25,6 +25,8 @@ import algo.SolveResult;
 import utils.Input;
 
 import java.io.File;
+import java.io.IOException;
+import utils.Output;
 
 public class RushHourApp extends Application {
     
@@ -35,6 +37,8 @@ public class RushHourApp extends Application {
     private ListView<String> moveList;
     private Label visitedLabel;   // new
     private Label timeLabel;
+    private SolveResult lastResult;
+    private Button exportButton;
 
     @Override
     public void start(Stage stage) {
@@ -45,7 +49,10 @@ public class RushHourApp extends Application {
         algoChoice.getItems().addAll("GBFS (Greedy)", "A*", "UCS");
         algoChoice.getSelectionModel().selectFirst();
 
-        HBox controlBar = new HBox(10, loadBtn, algoChoice, solveBtn);
+        exportButton = new Button("Export");
+        exportButton.setDisable(true);
+        exportButton.setOnAction(e -> exportToFile(stage));
+        HBox controlBar = new HBox(10, loadBtn, algoChoice, solveBtn, exportButton);
         controlBar.setAlignment(Pos.TOP_CENTER);
         controlBar.setPrefWidth(140); 
 
@@ -118,6 +125,8 @@ public class RushHourApp extends Application {
         };
         task.setOnSucceeded(e -> {
             SolveResult result = task.getValue();
+            lastResult = result;
+            exportButton.setDisable(result.solution == null);
             if (result.solution == null) {
                 moveList.getItems().setAll("❌ No solution");
                 return;
@@ -164,9 +173,9 @@ public class RushHourApp extends Application {
 
         int gateRow = b.getGoalRow() + topExtra;
         int gateCol = b.getGoalCol() + leftExtra;
-        g.setFill(Color.LIGHTGRAY);
+        g.setFill(Color.DARKSEAGREEN);
         g.fillRect(gateCol * CELL, gateRow * CELL, CELL, CELL);
-        g.setFill(Color.BLACK);
+        g.setFill(Color.WHITE);
         g.setFont(javafx.scene.text.Font.font(24));
         g.setTextAlign(javafx.scene.text.TextAlignment.CENTER);
         g.setTextBaseline(javafx.geometry.VPos.CENTER);
@@ -206,6 +215,29 @@ public class RushHourApp extends Application {
         }).start();
     }
 
+    private void exportToFile(Stage stage) {
+        if (lastResult == null || lastResult.solution == null) {
+            showErr("Solve dulu sebelum mengekspor.");
+            return;
+        }
+
+        FileChooser fc = new FileChooser();
+        fc.setTitle("Save Solution");
+        fc.setInitialFileName("rush_hour_solution.txt");
+        fc.getExtensionFilters().add(
+            new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+        File f = fc.showSaveDialog(stage);
+        if (f == null) return;           // user Cancel
+
+        try {
+            utils.Output.write(f.getAbsolutePath(), lastResult);
+            new Alert(Alert.AlertType.INFORMATION,
+                    "Solution saved to:\n" + f.getAbsolutePath(),
+                    ButtonType.OK).showAndWait();
+        } catch (IOException ex) {
+            showErr("Failed to save file:\n" + ex.getMessage());
+        }
+    }
     private void showErr(String msg) {
         new Alert(Alert.AlertType.ERROR, msg, ButtonType.OK).showAndWait();
     }
