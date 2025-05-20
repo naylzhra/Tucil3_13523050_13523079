@@ -37,12 +37,21 @@ public class Output {
 
             for (int i = 0; i < path.size(); i++) {
                 Node n = path.get(i);
-                String moveDesc = (n.move == null ? "START" : n.move);
-                w.write("Step " + i + " : " + moveDesc);
+                if (n.move == null) {
+                    w.write("Papan awal: ");
+                } else {
+                    String moveDesc = (n.move);
+                    w.write("Gerakan " + i + " : " + moveDesc);
+                }
+                
                 w.newLine();
 
                 Board b = n.board;
                 for (int r = 0; r < b.height; r++) {
+                    char[] rowArr = b.grid[r].clone(); // buat kalau mau timpa pakai 'K'
+                    if (r == b.goalRow && b.goalCol >= 0 && b.goalCol < b.width) {
+                        rowArr[b.goalCol] = 'K';
+                    }
                     w.write(new String(b.grid[r]));
                     w.newLine();
                 }
