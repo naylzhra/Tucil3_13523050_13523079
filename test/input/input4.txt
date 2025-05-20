@@ -1,9 +1,8 @@
-6 6 
-12
-AAB..F
-..BPDF
-GCCPDF
-GH..II
-GHJ...
-LLJMM.
+5 7
+13
    K
+AA..CBB
+.DPCCB.
+.EP...F
+.GHH..F
+.G.JJMM

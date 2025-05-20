@@ -1,8 +1,8 @@
 5 7
 10
   K
-AA..CBB
-.DPCCB.
+AA..BBB
+.EPCCC.
 .EP...F
 .GHH..F
 .G.JJJ.
