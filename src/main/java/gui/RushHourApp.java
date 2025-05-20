@@ -60,7 +60,7 @@ public class RushHourApp extends Application {
         visitedLabel = new Label("Visited: 0");
         timeLabel    = new Label("Time: 0 ms");
         stepLabel   = new Label("Step: 0");
-        HBox statusBar = new HBox(20, visitedLabel, timeLabel);
+        HBox statusBar = new HBox(20, visitedLabel, timeLabel, stepLabel);
         statusBar.setAlignment(Pos.CENTER_LEFT);
         statusBar.setPadding(new Insets(5));
 
@@ -109,6 +109,7 @@ public class RushHourApp extends Application {
         moveList.getItems().setAll("⏳ solving …");
         visitedLabel.setText("Visited: 0");
         timeLabel.setText("Time: 0 ms");
+        stepLabel.setText("Step: 0");
         Task<SolveResult> task = new Task<>() {
             @Override protected SolveResult call() {
                 String algo = algoChoice.getValue();
@@ -147,6 +148,7 @@ public class RushHourApp extends Application {
             animate(boards);
             visitedLabel.setText("Visited: " + result.nodesVisited);
             timeLabel.setText("Time: " + result.timeMs + " ms");
+            stepLabel.setText("Step: " + (path.size() - 1));
         });
         task.setOnFailed(e -> showErr("Solver crashed: " + task.getException()));
         new Thread(task).start();
