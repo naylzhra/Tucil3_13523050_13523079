@@ -13,18 +13,35 @@ public final class Helper {
 
         int distance = 0, blockers = 0;
         if (p.isHorizontal) {
-            distance += b.getGoalCol() - (p.col + p.length);
-            for (int j = p.col + p.length; j < b.width; j++) {
-                char c = b.grid[p.row][j];
-                if (c != '\0') blockers++;
+            if (b.exitDir == 'L') {
+                distance += Math.abs(b.getGoalCol() - p.col);
+                for (int j = p.col - 1; j >= 0; j--) {
+                    char c = b.grid[p.row][j];
+                    if (c != '.') blockers++;
+                }
+            } else {
+                distance += Math.abs(b.getGoalCol() - (p.col + p.length - 1));
+                for (int j = p.col + p.length; j < b.width; j++) {
+                    char c = b.grid[p.row][j];
+                    if (c != '.') blockers++;
+                }
             }
         } else {
-            distance += b.getGoalRow() - (p.row + p.length);
-            for (int r = p.row + p.length; r < b.height; r++) {
-                char occ = b.grid[r][p.col];
-                if (occ != '\0') blockers++;
+            if (b.exitDir == 'U') {
+                distance += Math.abs(b.getGoalRow() - p.row);
+                for (int r = p.row - 1; r >= 0; r--) {
+                    char occ = b.grid[r][p.col];
+                    if (occ != '.') blockers++;
+                }
+            } else { // 'D'
+                distance += Math.abs(b.getGoalRow() - (p.row + p.length - 1));
+                for (int r = p.row + p.length; r < b.height; r++) {
+                    char occ = b.grid[r][p.col];
+                    if (occ != '.') blockers++;
+                }
             }
         }
+        System.out.println("Distance: " + distance + ", Blockers: " + blockers);
         return distance + blockers;
     }
 
