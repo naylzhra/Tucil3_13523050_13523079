@@ -39,9 +39,9 @@ git clone https://github.com/your-git/Tucil3_13523050_13523079.git
 ```
 #### 2. Masuk ke repository di local, lalu jalankan
 ```bash
-mvn javafx:run
+mvn clean javafx:run
 ```
-#### 3. Untuk menjalankan program di CLI, jalankan
+#### 3. (Opsional) Untuk menjalankan program dengan mode CLI, jalankan
 ```bash
 ./run.bat
 ```
