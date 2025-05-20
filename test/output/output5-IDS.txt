@@ -1,0 +1,193 @@
+===== RUSH HOUR SOLUTION =====
+Total moves   : 20
+Nodes visited : 9305
+------------------------------
+Papan awal:
+   K  
+FFFCCD
+.E.AAD
+GE.BBD
+G.IPHH
+G.IPK.
+.JJJK.
+------------------------------
+Gerakan 1 : I U 2
+   K  
+FFFCCD
+.EIAAD
+GEIBBD
+G..PHH
+G..PK.
+.JJJK.
+------------------------------
+Gerakan 2 : J L 1
+   K  
+FFFCCD
+.EIAAD
+GEIBBD
+G..PHH
+G..PK.
+JJJ.K.
+------------------------------
+Gerakan 3 : P D 1
+   K  
+FFFCCD
+.EIAAD
+GEIBBD
+G...HH
+G..PK.
+JJJPK.
+------------------------------
+Gerakan 4 : E D 1
+   K  
+FFFCCD
+..IAAD
+GEIBBD
+GE..HH
+G..PK.
+JJJPK.
+------------------------------
+Gerakan 5 : G U 1
+   K  
+FFFCCD
+G.IAAD
+GEIBBD
+GE..HH
+...PK.
+JJJPK.
+------------------------------
+Gerakan 6 : P U 1
+   K  
+FFFCCD
+G.IAAD
+GEIBBD
+GE.PHH
+...PK.
+JJJ.K.
+------------------------------
+Gerakan 7 : E U 1
+   K  
+FFFCCD
+GEIAAD
+GEIBBD
+G..PHH
+...PK.
+JJJ.K.
+------------------------------
+Gerakan 8 : P D 1
+   K  
+FFFCCD
+GEIAAD
+GEIBBD
+G...HH
+...PK.
+JJJPK.
+------------------------------
+Gerakan 9 : H L 3
+   K  
+FFFCCD
+GEIAAD
+GEIBBD
+GHH...
+...PK.
+JJJPK.
+------------------------------
+Gerakan 10 : P U 1
+   K  
+FFFCCD
+GEIAAD
+GEIBBD
+GHHP..
+...PK.
+JJJ.K.
+------------------------------
+Gerakan 11 : D D 1
+   K  
+FFFCC.
+GEIAAD
+GEIBBD
+GHHP.D
+...PK.
+JJJ.K.
+------------------------------
+Gerakan 12 : C R 1
+   K  
+FFF.CC
+GEIAAD
+GEIBBD
+GHHP.D
+...PK.
+JJJ.K.
+------------------------------
+Gerakan 13 : D D 2
+   K  
+FFF.CC
+GEIAA.
+GEIBB.
+GHHP.D
+...PKD
+JJJ.KD
+------------------------------
+Gerakan 14 : A R 1
+   K  
+FFF.CC
+GEI.AA
+GEIBB.
+GHHP.D
+...PKD
+JJJ.KD
+------------------------------
+Gerakan 15 : P D 1
+   K  
+FFF.CC
+GEI.AA
+GEIBB.
+GHH..D
+...PKD
+JJJPKD
+------------------------------
+Gerakan 16 : B R 1
+   K  
+FFF.CC
+GEI.AA
+GEI.BB
+GHH..D
+...PKD
+JJJPKD
+------------------------------
+Gerakan 17 : P U 1
+   K  
+FFF.CC
+GEI.AA
+GEI.BB
+GHHP.D
+...PKD
+JJJ.KD
+------------------------------
+Gerakan 18 : P U 1
+   K  
+FFF.CC
+GEI.AA
+GEIPBB
+GHHP.D
+....KD
+JJJ.KD
+------------------------------
+Gerakan 19 : P U 1
+   K  
+FFF.CC
+GEIPAA
+GEIPBB
+GHH..D
+....KD
+JJJ.KD
+------------------------------
+Gerakan 20 : P U 1
+   K  
+FFFPCC
+GEIPAA
+GEI.BB
+GHH..D
+....KD
+JJJ.KD
+------------------------------

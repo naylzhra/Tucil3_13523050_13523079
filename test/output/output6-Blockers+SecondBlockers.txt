@@ -1,0 +1,380 @@
+===== RUSH HOUR SOLUTION =====
+Total moves   : 46
+Nodes visited : 418
+------------------------------
+Papan awal:
+ AAAB.C
+ ..DB.C
+KE.DPPC
+ E.FFGG
+ E.IIJJ
+ ......
+------------------------------
+Gerakan 1 : E D 1
+ AAAB.C
+ ..DB.C
+K..DPPC
+ E.FFGG
+ E.IIJJ
+ E.....
+------------------------------
+Gerakan 2 : F L 1
+ AAAB.C
+ ..DB.C
+K..DPPC
+ EFF.GG
+ E.IIJJ
+ E.....
+------------------------------
+Gerakan 3 : I L 1
+ AAAB.C
+ ..DB.C
+K..DPPC
+ EFF.GG
+ EII.JJ
+ E.....
+------------------------------
+Gerakan 4 : G L 1
+ AAAB.C
+ ..DB.C
+K..DPPC
+ EFFGG.
+ EII.JJ
+ E.....
+------------------------------
+Gerakan 5 : C D 1
+ AAAB..
+ ..DB.C
+K..DPPC
+ EFFGGC
+ EII.JJ
+ E.....
+------------------------------
+Gerakan 6 : J L 1
+ AAAB..
+ ..DB.C
+K..DPPC
+ EFFGGC
+ EIIJJ.
+ E.....
+------------------------------
+Gerakan 7 : C D 2
+ AAAB..
+ ..DB..
+K..DPP.
+ EFFGGC
+ EIIJJC
+ E....C
+------------------------------
+Gerakan 8 : P R 1
+ AAAB..
+ ..DB..
+K..D.PP
+ EFFGGC
+ EIIJJC
+ E....C
+------------------------------
+Gerakan 9 : B D 1
+ AAA...
+ ..DB..
+K..DBPP
+ EFFGGC
+ EIIJJC
+ E....C
+------------------------------
+Gerakan 10 : A R 3
+ ...AAA
+ ..DB..
+K..DBPP
+ EFFGGC
+ EIIJJC
+ E....C
+------------------------------
+Gerakan 11 : D U 1
+ ..DAAA
+ ..DB..
+K...BPP
+ EFFGGC
+ EIIJJC
+ E....C
+------------------------------
+Gerakan 12 : E U 3
+ E.DAAA
+ E.DB..
+KE..BPP
+ .FFGGC
+ .IIJJC
+ .....C
+------------------------------
+Gerakan 13 : I L 1
+ E.DAAA
+ E.DB..
+KE..BPP
+ .FFGGC
+ II.JJC
+ .....C
+------------------------------
+Gerakan 14 : F L 1
+ E.DAAA
+ E.DB..
+KE..BPP
+ FF.GGC
+ II.JJC
+ .....C
+------------------------------
+Gerakan 15 : D D 3
+ E..AAA
+ E..B..
+KE..BPP
+ FFDGGC
+ IIDJJC
+ .....C
+------------------------------
+Gerakan 16 : D D 1
+ E..AAA
+ E..B..
+KE..BPP
+ FF.GGC
+ IIDJJC
+ ..D..C
+------------------------------
+Gerakan 17 : F R 1
+ E..AAA
+ E..B..
+KE..BPP
+ .FFGGC
+ IIDJJC
+ ..D..C
+------------------------------
+Gerakan 18 : A L 2
+ EAAA..
+ E..B..
+KE..BPP
+ .FFGGC
+ IIDJJC
+ ..D..C
+------------------------------
+Gerakan 19 : E D 1
+ .AAA..
+ E..B..
+KE..BPP
+ EFFGGC
+ IIDJJC
+ ..D..C
+------------------------------
+Gerakan 20 : A L 1
+ AAA...
+ E..B..
+KE..BPP
+ EFFGGC
+ IIDJJC
+ ..D..C
+------------------------------
+Gerakan 21 : B U 1
+ AAAB..
+ E..B..
+KE...PP
+ EFFGGC
+ IIDJJC
+ ..D..C
+------------------------------
+Gerakan 22 : P L 3
+ AAAB..
+ E..B..
+KEPP...
+ EFFGGC
+ IIDJJC
+ ..D..C
+------------------------------
+Gerakan 23 : B D 1
+ AAA...
+ E..B..
+KEPPB..
+ EFFGGC
+ IIDJJC
+ ..D..C
+------------------------------
+Gerakan 24 : A R 1
+ .AAA..
+ E..B..
+KEPPB..
+ EFFGGC
+ IIDJJC
+ ..D..C
+------------------------------
+Gerakan 25 : C U 1
+ .AAA..
+ E..B..
+KEPPB.C
+ EFFGGC
+ IIDJJC
+ ..D...
+------------------------------
+Gerakan 26 : C U 2
+ .AAA.C
+ E..B.C
+KEPPB.C
+ EFFGG.
+ IIDJJ.
+ ..D...
+------------------------------
+Gerakan 27 : G R 1
+ .AAA.C
+ E..B.C
+KEPPB.C
+ EFF.GG
+ IIDJJ.
+ ..D...
+------------------------------
+Gerakan 28 : E U 1
+ EAAA.C
+ E..B.C
+KEPPB.C
+ .FF.GG
+ IIDJJ.
+ ..D...
+------------------------------
+Gerakan 29 : F L 1
+ EAAA.C
+ E..B.C
+KEPPB.C
+ FF..GG
+ IIDJJ.
+ ..D...
+------------------------------
+Gerakan 30 : B D 1
+ EAAA.C
+ E....C
+KEPPB.C
+ FF.BGG
+ IIDJJ.
+ ..D...
+------------------------------
+Gerakan 31 : D U 1
+ EAAA.C
+ E....C
+KEPPB.C
+ FFDBGG
+ IIDJJ.
+ ......
+------------------------------
+Gerakan 32 : J R 1
+ EAAA.C
+ E....C
+KEPPB.C
+ FFDBGG
+ IID.JJ
+ ......
+------------------------------
+Gerakan 33 : B D 2
+ EAAA.C
+ E....C
+KEPP..C
+ FFD.GG
+ IIDBJJ
+ ...B..
+------------------------------
+Gerakan 34 : D D 1
+ EAAA.C
+ E....C
+KEPP..C
+ FF..GG
+ IIDBJJ
+ ..DB..
+------------------------------
+Gerakan 35 : G L 1
+ EAAA.C
+ E....C
+KEPP..C
+ FF.GG.
+ IIDBJJ
+ ..DB..
+------------------------------
+Gerakan 36 : C D 1
+ EAAA..
+ E....C
+KEPP..C
+ FF.GGC
+ IIDBJJ
+ ..DB..
+------------------------------
+Gerakan 37 : D U 1
+ EAAA..
+ E....C
+KEPP..C
+ FFDGGC
+ IIDBJJ
+ ...B..
+------------------------------
+Gerakan 38 : A R 2
+ E..AAA
+ E....C
+KEPP..C
+ FFDGGC
+ IIDBJJ
+ ...B..
+------------------------------
+Gerakan 39 : P R 2
+ E..AAA
+ E....C
+KE..PPC
+ FFDGGC
+ IIDBJJ
+ ...B..
+------------------------------
+Gerakan 40 : D D 1
+ E..AAA
+ E....C
+KE..PPC
+ FF.GGC
+ IIDBJJ
+ ..DB..
+------------------------------
+Gerakan 41 : D U 4
+ E.DAAA
+ E.D..C
+KE..PPC
+ FF.GGC
+ II.BJJ
+ ...B..
+------------------------------
+Gerakan 42 : P L 2
+ E.DAAA
+ E.D..C
+KEPP..C
+ FF.GGC
+ II.BJJ
+ ...B..
+------------------------------
+Gerakan 43 : F R 1
+ E.DAAA
+ E.D..C
+KEPP..C
+ .FFGGC
+ II.BJJ
+ ...B..
+------------------------------
+Gerakan 44 : I R 1
+ E.DAAA
+ E.D..C
+KEPP..C
+ .FFGGC
+ .IIBJJ
+ ...B..
+------------------------------
+Gerakan 45 : E D 3
+ ..DAAA
+ ..D..C
+K.PP..C
+ EFFGGC
+ EIIBJJ
+ E..B..
+------------------------------
+Gerakan 46 : P L 1
+ ..DAAA
+ ..D..C
+KPP...C
+ EFFGGC
+ EIIBJJ
+ E..B..
+------------------------------
