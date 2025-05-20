@@ -9,7 +9,7 @@ import object.Board;
 import object.Node;
 
 public class UCS {
-    public static Node solve(Board start) {
+    public static SolveResult solve(Board start) {
         PriorityQueue<Node> simpulHidup = new PriorityQueue<>(Comparator.comparingInt(node -> node.g));
         Set<String> visited = new HashSet<>();
         simpulHidup.add(new Node(start, null, null, 0, 0));
@@ -18,12 +18,12 @@ public class UCS {
             String hash = current.board.toString();
             if (!visited.add(hash)) continue; 
             if (Helper.isGoal(current.board)) {
-                return current;
+                return new SolveResult(current, visited.size());
             }
             for (Node child : Helper.expand(current, false, true)) {
                 simpulHidup.add(child);
             }
         }
-        return null;
+        return new SolveResult(null, visited.size());
     }
 }

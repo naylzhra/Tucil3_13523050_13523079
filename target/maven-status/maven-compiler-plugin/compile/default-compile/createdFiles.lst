@@ -1,13 +1,7 @@
-gui\RushHourApp.class
 object\Board.class
+module-info.class
 object\Piece.class
 object\Node.class
-algo\IDS.class
-algo\AStar.class
-algo\Helper.class
-algo\UCS.class
-gui\RushHourApp$1.class
-cli\Main.class
-module-info.class
+algo\SolveResult.class
 algo\GBFS.class
-utils\Input.class
+algo\AStar.class

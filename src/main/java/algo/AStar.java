@@ -3,11 +3,13 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Set;
+
 import object.Board;
 import object.Node;
 
 public class AStar {
-    public static Node solve(Board start) {
+    public static SolveResult solve(Board start) {
+        //List<Object> result = new ArrayList<Object>();
         PriorityQueue<Node> simpulHidup = new PriorityQueue<>(Comparator.comparingInt(node -> node.f()));
         Set<String> visited = new HashSet<>();
         int h0 = Helper.blockingDistance(start);
@@ -20,12 +22,12 @@ public class AStar {
             }
             visited.add(hash);
             if (Helper.isGoal(current.board)) {
-                return current;
+                return new SolveResult(current, visited.size());
             }
             for (Node child : Helper.expand(current, true, true)) {
                 simpulHidup.add(child);
             }
         }
-        return null;
+        return new SolveResult(null, visited.size());
     }
 }
