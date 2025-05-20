@@ -1,0 +1,8 @@
+6 6
+11
+.....A
+BBC..A
+..CPPDK
+EECF.D
+GHHFII
+GKK...

@@ -46,8 +46,14 @@ public class Board {
             } else {
                 for (int j = 0; j < width; j++) {
                     char ch = grid[i][j];
-                    boolean highlightedNow = (ch == movedId);
-                    boolean highlightedOld = (oldMask != null && oldMask[i][j]);
+
+                    if (isFinished && ch == movedId) {
+                        System.out.print(BG_YELLOW + "." + RESET);
+                        continue;
+                    }
+
+                    boolean highlightedNow = !isFinished && ch == movedId;
+                    boolean highlightedOld = !isFinished && oldMask != null && oldMask[i][j];
 
                     if (highlightedNow) {
                         System.out.print(BG_YELLOW + BLUE + ch + RESET);

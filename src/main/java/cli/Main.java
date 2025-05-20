@@ -92,7 +92,8 @@ public class Main {
         }
         t1 = System.currentTimeMillis();
         if (goal == null) {
-            System.out.println("❌  Tidak ada solusi.");
+            System.out.println("Tidak ada solusi.");
+            return;
         }
         path = goal.getPath();
         System.out.println("\nSolved in " + (path.size()-1) + " moves, " + (t1 - t0) + " ms\n");
