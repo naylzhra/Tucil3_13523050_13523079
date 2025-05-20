@@ -223,11 +223,10 @@ public class RushHourApp extends Application {
 
         FileChooser fc = new FileChooser();
         fc.setTitle("Save Solution");
-        fc.setInitialFileName("rush_hour_solution.txt");
-        fc.getExtensionFilters().add(
-            new FileChooser.ExtensionFilter("Text Files", "*.txt"));
+        fc.setInitialFileName("output.txt");
+        fc.getExtensionFilters().add(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
         File f = fc.showSaveDialog(stage);
-        if (f == null) return;           // user Cancel
+        if (f == null) return;
 
         try {
             utils.Output.write(f.getAbsolutePath(), lastResult);
