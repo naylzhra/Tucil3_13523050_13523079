@@ -36,7 +36,7 @@ public class Input {
             if (line.length() == col + 1 && line.charAt(0) == 'K') {
                 exitDir = 'L';
                 goalCol = -1;
-                line = line.substring(1); // drop the K
+                line = line.substring(1);
             } else if (line.length() == col + 1 && line.charAt(col) == 'K') {
                 exitDir = 'R';
                 goalCol = col;

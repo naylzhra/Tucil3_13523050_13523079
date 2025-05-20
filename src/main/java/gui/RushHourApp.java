@@ -3,6 +3,7 @@ package gui;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
@@ -18,17 +19,21 @@ import object.Board;
 import object.Piece;
 import algo.AStar;
 import algo.GBFS;
+import algo.UCS;
+import algo.SolveResult;
 import utils.Input;
 
 import java.io.File;
 
 public class RushHourApp extends Application {
-
+    
     private static final int CELL = 60;          // px
     private Canvas boardCanvas;
     private Board currentBoard;
     private ComboBox<String> algoChoice;
     private ListView<String> moveList;
+    private Label visitedLabel;   // new
+    private Label timeLabel;
 
     @Override
     public void start(Stage stage) {
@@ -43,6 +48,12 @@ public class RushHourApp extends Application {
         controlBar.setAlignment(Pos.TOP_CENTER);
         controlBar.setPrefWidth(140); 
 
+        visitedLabel = new Label("Visited: 0");
+        timeLabel    = new Label("Time: 0 ms");
+        HBox statusBar = new HBox(20, visitedLabel, timeLabel);
+        statusBar.setAlignment(Pos.CENTER_LEFT);
+        statusBar.setPadding(new Insets(5));
+
         /* ---------- Drawing surface ---------- */
         boardCanvas = new Canvas();
         StackPane boardPane = new StackPane(boardCanvas);
@@ -55,6 +66,7 @@ public class RushHourApp extends Application {
         root.setTop(controlBar);
         root.setCenter(boardPane);
         root.setRight(moveList);
+        root.setBottom(statusBar);
 
         Scene scene = new Scene(root, 900, 600);
         stage.setTitle("Rush Hour Solver");
@@ -85,26 +97,31 @@ public class RushHourApp extends Application {
             return;
         }
         moveList.getItems().setAll("⏳ solving …");
-        Task<object.Node> task = new Task<>() {
-            @Override protected object.Node call() {
+        visitedLabel.setText("Visited: 0");
+        timeLabel.setText("Time: 0 ms");
+        Task<SolveResult> task = new Task<>() {
+            @Override protected SolveResult call() {
                 String algo = algoChoice.getValue();
+                long start = System.currentTimeMillis();
+                SolveResult result = null;
                 if (algo.equals("GBFS (Greedy)")) {
-                    return GBFS.solve(currentBoard);
+                    result = GBFS.solve(currentBoard);
                 } else if (algo.equals("A*")) {
-                    return AStar.solve(currentBoard);
-                } // else if (algo.equals("UCS")) {
-                //     return UCS.solve(currentBoard);
-                // }
-                return null;
+                    result = AStar.solve(currentBoard);
+                } else if (algo.equals("UCS")) {
+                    result = UCS.solve(currentBoard);
+                }
+                long end = System.currentTimeMillis();
+                return new SolveResult(result.solution, result.nodesVisited, end - start);
             }
         };
         task.setOnSucceeded(e -> {
-            object.Node goal = task.getValue();
-            if (goal == null) {
+            SolveResult result = task.getValue();
+            if (result.solution == null) {
                 moveList.getItems().setAll("❌ No solution");
                 return;
             }
-            List<object.Node> path = goal.getPath();
+            List<object.Node> path = result.solution.getPath();
             List<Board> boards = path.stream().map(n -> n.board).toList();
             List<String> moves  = path.stream().map(n -> n.move == null ? "Start" : n.move).toList();
             moveList.getItems().setAll(moves);
@@ -112,6 +129,8 @@ public class RushHourApp extends Application {
                 moveList.getItems().add(i + " : " + path.get(i).move);
             }
             animate(boards);
+            visitedLabel.setText("Visited: " + result.nodesVisited);
+            timeLabel.setText("Time: " + result.timeMs + " ms");
         });
         task.setOnFailed(e -> showErr("Solver crashed: " + task.getException()));
         new Thread(task).start();
