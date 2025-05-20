@@ -54,6 +54,18 @@ public class Main {
             }
         }
 
+        int mode;
+        while (true) {
+            System.out.print("Masukkan heuristic yang ingin dipakai: \n1. Distance + Blocker\n2. Blocker + 2nd Blocker\n3. Distance Only\n");
+            mode = Integer.parseInt(sc.nextLine());
+            if (mode >= 1 && mode <= 3) {
+                break;
+            } else {
+                System.out.println("Input tidak sesuai opsi pilihan yang tersedia (1-3)");
+            }
+        }
+        
+
         System.out.println("\n-------------------------------------------------------------------------\n");
         System.out.println("Papan Awal:");
         for (int i = 0; i < board.height; i++) {
@@ -66,8 +78,6 @@ public class Main {
             }
             System.out.println();
         }
-        //debugging
-        cekValidasiBoardDanPiece(board);
 
         long t0, t1;
         SolveResult goal = null;
@@ -76,19 +86,19 @@ public class Main {
         switch(algorithm){
             case "GBFS":
                 System.out.println("\n\nMenggunakan algoritma Greedy Best First Search (GBFS)");
-                goal = GBFS.solve(board);
+                goal = GBFS.solve(board, mode -1);
                 break;
             case "UCS":
                 System.out.println("Menggunakan algoritma Uniform Cost Search (UCS)");
-                goal = UCS.solve(board);
+                goal = UCS.solve(board, mode -1);
                 break;
             case "A*":
                 System.out.println("Menggunakan algoritma A*");
-                goal = AStar.solve(board);
+                goal = AStar.solve(board, mode - 1);
                 break;
             case "IDS":
                 System.err.println("Menggunakan algoritma Iterative Deepening Search (IDS)");
-                goal = IDS.solve(board);
+                goal = IDS.solve(board, mode - 1);
                 break;
         }
         t1 = System.currentTimeMillis();

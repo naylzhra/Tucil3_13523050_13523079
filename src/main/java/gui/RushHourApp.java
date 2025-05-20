@@ -21,6 +21,7 @@ import algo.AStar;
 import algo.GBFS;
 import algo.Helper;
 import algo.UCS;
+import algo.IDS;
 import algo.SolveResult;
 import utils.Input;
 
@@ -34,6 +35,7 @@ public class RushHourApp extends Application {
     private Canvas boardCanvas;
     private Board currentBoard;
     private ComboBox<String> algoChoice;
+    private ComboBox<String> heuristicChoice;
     private ListView<String> moveList;
     private Label visitedLabel;
     private Label timeLabel;
@@ -47,13 +49,16 @@ public class RushHourApp extends Application {
         Button loadBtn  = new Button("Load Board");
         Button solveBtn = new Button("Solve");
         algoChoice      = new ComboBox<>();
-        algoChoice.getItems().addAll("GBFS (Greedy)", "A*", "UCS");
+        algoChoice.getItems().addAll("GBFS (Greedy)", "A*", "UCS", "IDS");
         algoChoice.getSelectionModel().selectFirst();
+        heuristicChoice = new ComboBox<>();
+        heuristicChoice.getItems().addAll("Distance + Blockers", "Distance Only", "Blockers + Second Blockers");
+        heuristicChoice.getSelectionModel().select(0);
 
         exportButton = new Button("Export");
         exportButton.setDisable(true);
         exportButton.setOnAction(e -> exportToFile(stage));
-        HBox controlBar = new HBox(10, loadBtn, algoChoice, solveBtn, exportButton);
+        HBox controlBar = new HBox(10, loadBtn, algoChoice, heuristicChoice, solveBtn, exportButton);
         controlBar.setAlignment(Pos.TOP_CENTER);
         controlBar.setPrefWidth(140); 
 
@@ -116,14 +121,23 @@ public class RushHourApp extends Application {
         Task<SolveResult> task = new Task<>() {
             @Override protected SolveResult call() {
                 String algo = algoChoice.getValue();
+                String heuristic = heuristicChoice.getValue();
+                int mode = 0;
+                if (heuristic.equals("Blockers + Second Blockers")) {
+                    mode = 1;
+                } else if (heuristic.equals("Distance Only")) {
+                    mode = 2;
+                }
                 long start = System.currentTimeMillis();
                 SolveResult result = null;
                 if (algo.equals("GBFS (Greedy)")) {
-                    result = GBFS.solve(currentBoard);
+                    result = GBFS.solve(currentBoard, mode);
                 } else if (algo.equals("A*")) {
-                    result = AStar.solve(currentBoard);
+                    result = AStar.solve(currentBoard, mode);
                 } else if (algo.equals("UCS")) {
-                    result = UCS.solve(currentBoard);
+                    result = UCS.solve(currentBoard, mode);
+                } else if (algo.equals("IDS")) {
+                    result = IDS.solve(currentBoard, mode);
                 }
                 long end = System.currentTimeMillis();
                 return new SolveResult(result.solution, result.nodesVisited, end - start);
