@@ -7,6 +7,7 @@ import java.util.Scanner;
 import algo.AStar;
 import algo.GBFS;
 import algo.IDS;
+import algo.SolveResult;
 import algo.UCS;
 import object.Board;
 import object.Node;
@@ -69,7 +70,7 @@ public class Main {
         cekValidasiBoardDanPiece(board);
 
         long t0, t1;
-        Node goal = null;
+        SolveResult goal = null;
         List<Node> path;
         t0 = System.currentTimeMillis();
         switch(algorithm){
@@ -95,8 +96,8 @@ public class Main {
             System.out.println("Tidak ada solusi.");
             return;
         }
-        path = goal.getPath();
-        System.out.println("\nSolved in " + (path.size()-1) + " moves, " + (t1 - t0) + " ms\n");
+        path = goal.solution.getPath();
+        System.out.println("\nSolved in " + (path.size()-1) + " moves, " + (t1 - t0) + " ms, " + goal.nodesVisited + "nodes visites\n");
         printSteps(path);
     }
 

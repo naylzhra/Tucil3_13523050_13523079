@@ -4,11 +4,12 @@ import java.util.Comparator;
 import java.util.HashSet;
 import java.util.PriorityQueue;
 import java.util.Set;
+
 import object.Board;
 import object.Node;
 
 public class GBFS {
-    public static Node solve(Board start) {
+    public static SolveResult solve(Board start) {
         PriorityQueue<Node> simpulHidup = new PriorityQueue<>(Comparator.comparingInt(node -> node.h));
         Set<String> visited = new HashSet<>();
         int h0 = Helper.blockingDistance(start);
@@ -21,13 +22,13 @@ public class GBFS {
             }
             visited.add(hash);
             if (Helper.isGoal(current.board)) {
-                return current;
+                return new SolveResult(current, visited.size());
             }
             for (Node child : Helper.expand(current, true, false)) {
                 simpulHidup.add(child);
             }
         }
-        return null;
+        return new SolveResult(null, visited.size());
     }
 
 }
