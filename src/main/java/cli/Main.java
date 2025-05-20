@@ -6,6 +6,7 @@ import java.util.Scanner;
 
 import algo.AStar;
 import algo.GBFS;
+import algo.IDS;
 import algo.UCS;
 import object.Board;
 import object.Node;
@@ -19,7 +20,7 @@ public class Main {
         System.out.println("=========================================================================");
         System.out.println("        Mayla Yaffa Ludmilla (13523050) & Nayla Zahira (13523079)        ");
         System.out.println("-------------------------------------------------------------------------\n");
-        System.err.println("Algoritma yang tersedia: \n1. Greedy Best First Search (GBFS)\n2. Uniform Cost Search (UCS)\n3. A*\n");
+        System.err.println("Algoritma yang tersedia: \n1. Greedy Best First Search (GBFS)\n2. Uniform Cost Search (UCS)\n3. A*\n4. IDS\n");
 
 
         Scanner sc = new Scanner(System.in);
@@ -45,7 +46,7 @@ public class Main {
         while (true) {
             System.out.print("Masukkan algoritma yang ingin dipakai (GBFS/UCS/A*): ");
             algorithm = sc.nextLine().trim().toUpperCase();
-            if (algorithm.equals("GBFS") || algorithm.equals("UCS") || algorithm.equals("A*")) {
+            if (algorithm.equals("GBFS") || algorithm.equals("UCS") || algorithm.equals("A*") || algorithm.equals("IDS")) {
                 break;
             } else {
                 System.out.println("Tidak ada algoritma " + algorithm + " yang tersedia. Pilih antara GBFS/UCS/A*.");
@@ -83,6 +84,10 @@ public class Main {
             case "A*":
                 System.out.println("Menggunakan algoritma A*");
                 goal = AStar.solve(board);
+                break;
+            case "IDS":
+                System.err.println("Menggunakan algoritma Iterative Deepening Search (IDS)");
+                goal = IDS.solve(board);
                 break;
         }
         t1 = System.currentTimeMillis();
