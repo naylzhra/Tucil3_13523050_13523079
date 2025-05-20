@@ -43,30 +43,31 @@ public class Board {
         for (int i = 0; i < height; i++) {
             if (exitDir == 'L'){
                 if (i == goalRow) System.err.print(GREEN + 'K' + RESET);
-            } else {
-                for (int j = 0; j < width; j++) {
-                    char ch = grid[i][j];
+            } else System.err.print(" ");
 
-                    if (isFinished && ch == movedId) {
-                        System.out.print(BG_YELLOW + "." + RESET);
-                        continue;
-                    }
+            for (int j = 0; j < width; j++) {
+                char ch = grid[i][j];
 
-                    boolean highlightedNow = !isFinished && ch == movedId;
-                    boolean highlightedOld = !isFinished && oldMask != null && oldMask[i][j];
+                if (isFinished && ch == movedId) {
+                    System.out.print(BG_YELLOW + "." + RESET);
+                    continue;
+                }
 
-                    if (highlightedNow) {
-                        System.out.print(BG_YELLOW + BLUE + ch + RESET);
-                    } else if (highlightedOld) {
-                        System.out.print(BG_YELLOW + ch + RESET);  
-                    } else {
-                        boolean primary = false;
-                        for (Piece p : pieces)
-                            if (p.id == ch && p.isPrimary) { primary = true; break; }
-                        System.out.print(primary ? RED + ch + RESET : ch);
-                    }
+                boolean highlightedNow = !isFinished && ch == movedId;
+                boolean highlightedOld = !isFinished && oldMask != null && oldMask[i][j];
+
+                if (highlightedNow) {
+                    System.out.print(BG_YELLOW + BLUE + ch + RESET);
+                } else if (highlightedOld) {
+                    System.out.print(BG_YELLOW + ch + RESET);  
+                } else {
+                    boolean primary = false;
+                    for (Piece p : pieces)
+                        if (p.id == ch && p.isPrimary) { primary = true; break; }
+                    System.out.print(primary ? RED + ch + RESET : ch);
                 }
             }
+            
             if (exitDir == 'R'){
                 if (i == goalRow) System.err.print(GREEN + 'K' + RESET);
             }
