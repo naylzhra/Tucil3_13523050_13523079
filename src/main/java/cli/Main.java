@@ -44,7 +44,7 @@ public class Main {
 
         String algorithm;
         while (true) {
-            System.out.print("Masukkan algoritma yang ingin dipakai (GBFS/UCS/A*): ");
+            System.out.print("Masukkan algoritma yang ingin dipakai (GBFS/UCS/A*/IDS): ");
             algorithm = sc.nextLine().trim().toUpperCase();
             if (algorithm.equals("GBFS") || algorithm.equals("UCS") || algorithm.equals("A*") || algorithm.equals("IDS")) {
                 break;
