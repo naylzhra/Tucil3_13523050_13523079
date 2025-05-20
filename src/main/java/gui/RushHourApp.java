@@ -36,11 +36,12 @@ public class RushHourApp extends Application {
         Button loadBtn  = new Button("Load Board");
         Button solveBtn = new Button("Solve");
         algoChoice      = new ComboBox<>();
-        algoChoice.getItems().addAll("GBFS (Greedy)", "A*" /*"UCS", "A*"*/);
+        algoChoice.getItems().addAll("GBFS (Greedy)", "A*", "UCS");
         algoChoice.getSelectionModel().selectFirst();
 
         HBox controlBar = new HBox(10, loadBtn, algoChoice, solveBtn);
-        controlBar.setAlignment(Pos.CENTER);
+        controlBar.setAlignment(Pos.TOP_CENTER);
+        controlBar.setPrefWidth(140); 
 
         /* ---------- Drawing surface ---------- */
         boardCanvas = new Canvas();
@@ -127,20 +128,25 @@ public class RushHourApp extends Application {
         g.clearRect(0,0,w,h);
 
         g.setStroke(Color.LIGHTGRAY);
-        for (int r = 0; r <= b.height; r++)
-            g.strokeLine(0, r*CELL, w, r*CELL);
-        for (int c = 0; c <= b.width; c++)
-            g.strokeLine(c*CELL, 0, c*CELL, h);
+        for (int r = 0; r <= b.height; r++) g.strokeLine(0, r*CELL, w, r*CELL);
+        for (int c = 0; c <= b.width; c++) g.strokeLine(c*CELL, 0, c*CELL, h);
 
         for (Piece p : b.pieces) {
             Color col = p.isPrimary ? Color.CRIMSON : Color.CADETBLUE;
-            g.setFill(col);
             double x = p.col * CELL + 2;
             double y = p.row * CELL + 2;
             double pw = (p.isHorizontal ? p.length : 1) * CELL - 4;
             double ph = (p.isHorizontal ? 1 : p.length) * CELL - 4;
+            g.setFill(col);
             g.fillRoundRect(x, y, pw, ph, 8, 8);
+            
+            g.setFill(Color.WHITE);
+            g.setFont(javafx.scene.text.Font.font(18));
+            g.setTextAlign(javafx.scene.text.TextAlignment.CENTER);
+            g.setTextBaseline(javafx.geometry.VPos.CENTER);
+            g.fillText(String.valueOf(p.id), x + pw / 2, y + ph / 2);
         }
+
     }
 
     // animasi steps
