@@ -1,4 +1,5 @@
 package utils;
+
 import java.io.*;
 import java.util.*;
 import java.util.function.BiConsumer;
@@ -6,7 +7,7 @@ import java.util.function.BiConsumer;
 import object.Board;
 import object.Piece;
 
-public class Input { 
+public class Input {
     public static Board readBoardFromFile(String filename) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(filename));
 
@@ -21,40 +22,52 @@ public class Input {
 
         int goalRow = -1, goalCol = -1;
         char exitDir = '?';
-
-        for (int i = 0; i < row; i++) {
-            String line = br.readLine();
-
+        
+        int i = 0;
+        while (i < row) {
+            String rawLine = br.readLine();
+            if (rawLine == null) throw new IOException("Unexpected end of board data on row " + i);
+            if (i == 0 && rawLine.trim().equals("K")) {
+                exitDir = 'U';
+                goalRow = -1;
+                continue;
+            }
+            String line = rawLine.stripLeading();
             if (line.length() == col + 1 && line.charAt(0) == 'K') {
                 exitDir = 'L';
-                goalRow = i;
                 goalCol = -1;
-                line = line.substring(1);              // drop the K
+                line = line.substring(1); // drop the K
             } else if (line.length() == col + 1 && line.charAt(col) == 'K') {
                 exitDir = 'R';
-                goalRow = i;
                 goalCol = col;
-                line = line.substring(0, col);        // keep only the board cells
+                line = line.substring(0, col); // keep only the board cells
             }
 
             for (int j = 0; j < col; j++) {
                 grid[i][j] = line.charAt(j);
-                if (grid[i][j] != '.' && grid[i][j] != 'K'){
+                if (grid[i][j] != '.' && grid[i][j] != 'K') {
                     Piece p = pieceMap.get(grid[i][j]);
                     if (p == null) {
-                        boolean horizontal =
-                            (j + 1 < col && line.charAt(j+1) == grid[i][j]) ||
-                            (j - 1 >= 0   && line.charAt(j-1) == grid[i][j]);
+                        boolean horizontal = (j + 1 < col && line.charAt(j + 1) == grid[i][j]) ||
+                                (j - 1 >= 0 && line.charAt(j - 1) == grid[i][j]);
                         boolean isPrimary = (grid[i][j] == 'P');
                         p = new Piece(grid[i][j], i, j, 1, horizontal, isPrimary);
+                        if (isPrimary) {
+                            if (horizontal){
+                                goalRow = i;
+                            } else{
+                                goalCol = j;
+                            }
+                        }
                         pieceMap.put(grid[i][j], p);
                     } else {
                         p.addLength();
                     }
                 }
             }
+            i++;
         }
-        br.mark(2);
+        br.mark(1);
         String extra = br.readLine();
         if (extra != null && extra.indexOf('K') != -1) {
             int kPos = extra.indexOf('K');
@@ -62,13 +75,10 @@ public class Input {
                 throw new IOException("Two exit gates found!");
             if (kPos >= 0 && kPos < col) {
                 goalCol = kPos;
-                if (extra.trim().equals(extra)) {
-                    exitDir = 'D';  goalRow = row;
-                } else {
-                    exitDir = 'U';  goalRow = -1;
-                }
+                goalRow = row;
+                exitDir = 'D';
             } else
-                throw new IOException("Malformed K-line: "+extra);
+                throw new IOException("Malformed Line: " + extra);
         } else {
             br.reset();
         }
