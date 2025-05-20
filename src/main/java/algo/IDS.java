@@ -27,7 +27,7 @@ public class IDS {
         if (limit == 0) return null;
         for (Node child : Helper.expand(current, false, false)) {
             Node result = dls(child, limit - 1, visited);
-            if (result != null);
+            if (result != null) return result;
         }
         return null;
     }

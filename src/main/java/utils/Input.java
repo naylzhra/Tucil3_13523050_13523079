@@ -87,14 +87,14 @@ public class Input {
             br.reset();
         }
         br.close();
-
+        
+        pieces.addAll(pieceMap.values());
         for (Piece p : pieces) {
             char id = p.id;
             int len = p.length;
             if (len < 2) {
                 throw new IOException("Piece '" + id + "' too short: length=" + len + " (min 2)");
             }
-            // kumpulkan koordinat semua sel ber-‘id’
             List<int[]> coords = new ArrayList<>();
             for (int r = 0; r < row; r++) {
                 for (int c = 0; c < col; c++) {
@@ -103,12 +103,10 @@ public class Input {
                     }
                 }
             }
-            // harus sama banyak dengan p.length
             if (coords.size() != len) {
                 throw new IOException("Piece '" + id + "' inconsistency: counted=" 
                                       + coords.size() + " vs length=" + len);
             }
-            // cek lurus
             if (p.isHorizontal) {
                 int r0 = coords.get(0)[0];
                 int minC = coords.stream().mapToInt(c->c[1]).min().getAsInt();
@@ -125,8 +123,6 @@ public class Input {
                 }
             }
         }
-
-        pieces.addAll(pieceMap.values());
         return new Board(grid, pieces, goalRow, goalCol, exitDir);
     }
 }
