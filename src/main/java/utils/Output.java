@@ -35,26 +35,42 @@ public class Output {
             w.write("------------------------------");
             w.newLine();
 
-            for (int i = 0; i < path.size(); i++) {
-                Node n = path.get(i);
+            for (int step = 0; step < path.size(); step++) {
+                Node n = path.get(step);
                 if (n.move == null) {
-                    w.write("Papan awal: ");
+                    w.write("Papan awal:");
                 } else {
-                    String moveDesc = (n.move);
-                    w.write("Gerakan " + i + " : " + moveDesc);
+                    w.write("Gerakan " + step + " : " + n.move);
                 }
-                
                 w.newLine();
 
                 Board b = n.board;
-                for (int r = 0; r < b.height; r++) {
-                    char[] rowArr = b.grid[r].clone(); // buat kalau mau timpa pakai 'K'
-                    if (r == b.goalRow && b.goalCol >= 0 && b.goalCol < b.width) {
-                        rowArr[b.goalCol] = 'K';
+
+                if (b.exitDir == 'U') {
+                    for (int c = 0; c < b.width; c++) {
+                        w.write(c == b.goalCol ? 'K' : ' ');
                     }
-                    w.write(new String(b.grid[r]));
                     w.newLine();
                 }
+
+                for (int r = 0; r < b.height; r++) {
+                    if (b.exitDir == 'L') {
+                        w.write(r == b.goalRow ? 'K' : ' ');
+                    }
+                    w.write(new String(b.grid[r]));
+                    if (b.exitDir == 'R') {
+                        w.write(r == b.goalRow ? 'K' : ' ');
+                    }
+                    w.newLine();
+                }
+
+                if (b.exitDir == 'D') {
+                    for (int c = 0; c < b.width; c++) {
+                        w.write(c == b.goalCol ? 'K' : ' ');
+                    }
+                    w.newLine();
+                }
+
                 w.write("------------------------------");
                 w.newLine();
             }
