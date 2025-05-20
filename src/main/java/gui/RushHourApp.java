@@ -30,13 +30,14 @@ import utils.Output;
 
 public class RushHourApp extends Application {
     
-    private static final int CELL = 60;          // px
+    private static final int CELL = 60;
     private Canvas boardCanvas;
     private Board currentBoard;
     private ComboBox<String> algoChoice;
     private ListView<String> moveList;
-    private Label visitedLabel;   // new
+    private Label visitedLabel;
     private Label timeLabel;
+    private Label stepLabel;
     private SolveResult lastResult;
     private Button exportButton;
 
@@ -58,6 +59,7 @@ public class RushHourApp extends Application {
 
         visitedLabel = new Label("Visited: 0");
         timeLabel    = new Label("Time: 0 ms");
+        stepLabel   = new Label("Step: 0");
         HBox statusBar = new HBox(20, visitedLabel, timeLabel);
         statusBar.setAlignment(Pos.CENTER_LEFT);
         statusBar.setPadding(new Insets(5));
@@ -133,11 +135,15 @@ public class RushHourApp extends Application {
             }
             List<object.Node> path = result.solution.getPath();
             List<Board> boards = path.stream().map(n -> n.board).toList();
-            List<String> moves  = path.stream().map(n -> n.move == null ? "Start" : n.move).toList();
-            moveList.getItems().setAll(moves);
+            java.util.List<String> steps = new java.util.ArrayList<>();
             for (int i = 0; i < path.size(); i++) {
-                moveList.getItems().add(i + " : " + path.get(i).move);
+                if (i == 0) {
+                    steps.add("Start");
+                } else {
+                    steps.add(i + " : " + (path.get(i).move == null ? "Unknown" : path.get(i).move));
+                }
             }
+            moveList.getItems().setAll(steps);
             animate(boards);
             visitedLabel.setText("Visited: " + result.nodesVisited);
             timeLabel.setText("Time: " + result.timeMs + " ms");
