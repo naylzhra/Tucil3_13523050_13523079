@@ -17,7 +17,7 @@ public final class Helper {
             case 2:
                 return distanceOnly(b);
             default:
-                return distanceOnly(b);
+                return blockingDistance(b);
         }
     }
     private static int blockingDistance(Board b) {
@@ -147,17 +147,17 @@ public final class Helper {
         Piece p = b.getPrimaryPiece();
         if (p == null) return 0;
 
-        int dist      = distanceOnly(b);
-        int blockers  = countDirectBlockers(b, p);
+        int dist = distanceOnly(b);
+        int blockers = countDirectBlockers(b, p);
         int secBlocks = 0;
 
         for (Piece q : directBlockerPieces(b, p)) {
             if (q.isHorizontal) {
-                boolean leftFree  = q.col > 0 && b.grid[q.row][q.col-1] == '.';
+                boolean leftFree = q.col > 0 && b.grid[q.row][q.col-1] == '.';
                 boolean rightFree = q.col + q.length < b.width && b.grid[q.row][q.col+q.length] == '.';
                 if (!leftFree && !rightFree) secBlocks++;
             } else {
-                boolean upFree   = q.row > 0 && b.grid[q.row-1][q.col] == '.';
+                boolean upFree = q.row > 0 && b.grid[q.row-1][q.col] == '.';
                 boolean downFree = q.row + q.length < b.height && b.grid[q.row+q.length][q.col] == '.';
                 if (!upFree && !downFree) secBlocks++;
             }

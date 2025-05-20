@@ -1,6 +1,6 @@
 ===== RUSH HOUR SOLUTION =====
-Total moves   : 7
-Nodes visited : 11
+Total moves   : 6
+Nodes visited : 18
 ------------------------------
 Papan awal:
 AAB..F 
@@ -18,23 +18,15 @@ GH.III
 GHJ... 
 LLJMM. 
 ------------------------------
-Gerakan 2 : P R 1
-AABC.F 
-..BCDF 
-G.PPDFK
-GH.III 
-GHJ... 
-LLJMM. 
-------------------------------
-Gerakan 3 : D U 1
+Gerakan 2 : D U 1
 AABCDF 
 ..BCDF 
-G.PP.FK
+GPP..FK
 GH.III 
 GHJ... 
 LLJMM. 
 ------------------------------
-Gerakan 4 : P R 1
+Gerakan 3 : P R 2
 AABCDF 
 ..BCDF 
 G..PPFK
@@ -42,7 +34,7 @@ GH.III
 GHJ... 
 LLJMM. 
 ------------------------------
-Gerakan 5 : I L 1
+Gerakan 4 : I L 1
 AABCDF 
 ..BCDF 
 G..PPFK
@@ -50,7 +42,7 @@ GHIII.
 GHJ... 
 LLJMM. 
 ------------------------------
-Gerakan 6 : F D 3
+Gerakan 5 : F D 3
 AABCD. 
 ..BCD. 
 G..PP.K
@@ -58,7 +50,7 @@ GHIIIF
 GHJ..F 
 LLJMMF 
 ------------------------------
-Gerakan 7 : P R 1
+Gerakan 6 : P R 1
 AABCD. 
 ..BCD. 
 G...PPK

@@ -1,0 +1,156 @@
+===== RUSH HOUR SOLUTION =====
+Total moves   : 18
+Nodes visited : 1121
+------------------------------
+Papan awal:
+.....A 
+BBC..A 
+..CPPDK
+EECF.D 
+GHHFII 
+GLL... 
+------------------------------
+Gerakan 1 : C U 1
+..C..A 
+BBC..A 
+..CPPDK
+EE.F.D 
+GHHFII 
+GLL... 
+------------------------------
+Gerakan 2 : L R 3
+..C..A 
+BBC..A 
+..CPPDK
+EE.F.D 
+GHHFII 
+G...LL 
+------------------------------
+Gerakan 3 : F D 1
+..C..A 
+BBC..A 
+..CPPDK
+EE...D 
+GHHFII 
+G..FLL 
+------------------------------
+Gerakan 4 : E R 3
+..C..A 
+BBC..A 
+..CPPDK
+...EED 
+GHHFII 
+G..FLL 
+------------------------------
+Gerakan 5 : G U 2
+..C..A 
+BBC..A 
+G.CPPDK
+G..EED 
+.HHFII 
+...FLL 
+------------------------------
+Gerakan 6 : H L 1
+..C..A 
+BBC..A 
+G.CPPDK
+G..EED 
+HH.FII 
+...FLL 
+------------------------------
+Gerakan 7 : C D 2
+.....A 
+BB...A 
+G.CPPDK
+G.CEED 
+HHCFII 
+...FLL 
+------------------------------
+Gerakan 8 : B R 3
+.....A 
+...BBA 
+G.CPPDK
+G.CEED 
+HHCFII 
+...FLL 
+------------------------------
+Gerakan 9 : G U 1
+.....A 
+G..BBA 
+G.CPPDK
+..CEED 
+HHCFII 
+...FLL 
+------------------------------
+Gerakan 10 : C U 2
+..C..A 
+G.CBBA 
+G.CPPDK
+...EED 
+HH.FII 
+...FLL 
+------------------------------
+Gerakan 11 : E L 3
+..C..A 
+G.CBBA 
+G.CPPDK
+EE...D 
+HH.FII 
+...FLL 
+------------------------------
+Gerakan 12 : C D 3
+.....A 
+G..BBA 
+G..PPDK
+EEC..D 
+HHCFII 
+..CFLL 
+------------------------------
+Gerakan 13 : B L 2
+.....A 
+GBB..A 
+G..PPDK
+EEC..D 
+HHCFII 
+..CFLL 
+------------------------------
+Gerakan 14 : P L 2
+.....A 
+GBB..A 
+GPP..DK
+EEC..D 
+HHCFII 
+..CFLL 
+------------------------------
+Gerakan 15 : F U 4
+...F.A 
+GBBF.A 
+GPP..DK
+EEC..D 
+HHC.II 
+..C.LL 
+------------------------------
+Gerakan 16 : I L 1
+...F.A 
+GBBF.A 
+GPP..DK
+EEC..D 
+HHCII. 
+..C.LL 
+------------------------------
+Gerakan 17 : D D 1
+...F.A 
+GBBF.A 
+GPP...K
+EEC..D 
+HHCIID 
+..C.LL 
+------------------------------
+Gerakan 18 : P R 3
+...F.A 
+GBBF.A 
+G...PPK
+EEC..D 
+HHCIID 
+..C.LL 
+------------------------------

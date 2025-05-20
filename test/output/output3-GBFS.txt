@@ -1,0 +1,85 @@
+===== RUSH HOUR SOLUTION =====
+Total moves   : 8
+Nodes visited : 24
+------------------------------
+Papan awal:
+   K  
+FFFCCD
+.E.AAD
+GE.BBD
+G.IPHH
+G.IPK.
+.JJJK.
+------------------------------
+Gerakan 1 : E D 2
+   K  
+FFFCCD
+...AAD
+G..BBD
+GEIPHH
+GEIPK.
+.JJJK.
+------------------------------
+Gerakan 2 : A L 2
+   K  
+FFFCCD
+.AA..D
+G..BBD
+GEIPHH
+GEIPK.
+.JJJK.
+------------------------------
+Gerakan 3 : B L 2
+   K  
+FFFCCD
+.AA..D
+GBB..D
+GEIPHH
+GEIPK.
+.JJJK.
+------------------------------
+Gerakan 4 : P U 2
+   K  
+FFFCCD
+.AAP.D
+GBBP.D
+GEI.HH
+GEI.K.
+.JJJK.
+------------------------------
+Gerakan 5 : H L 1
+   K  
+FFFCCD
+.AAP.D
+GBBP.D
+GEIHH.
+GEI.K.
+.JJJK.
+------------------------------
+Gerakan 6 : D D 1
+   K  
+FFFCC.
+.AAP.D
+GBBP.D
+GEIHHD
+GEI.K.
+.JJJK.
+------------------------------
+Gerakan 7 : C R 1
+   K  
+FFF.CC
+.AAP.D
+GBBP.D
+GEIHHD
+GEI.K.
+.JJJK.
+------------------------------
+Gerakan 8 : P U 1
+   K  
+FFFPCC
+.AAP.D
+GBB..D
+GEIHHD
+GEI.K.
+.JJJK.
+------------------------------

@@ -1,0 +1,1124 @@
+===== RUSH HOUR SOLUTION =====
+Total moves   : 139
+Nodes visited : 474
+------------------------------
+Papan awal:
+.....A 
+BBC..A 
+..CPPDK
+EECF.D 
+GHHFII 
+GLL... 
+------------------------------
+Gerakan 1 : C U 1
+..C..A 
+BBC..A 
+..CPPDK
+EE.F.D 
+GHHFII 
+GLL... 
+------------------------------
+Gerakan 2 : L R 3
+..C..A 
+BBC..A 
+..CPPDK
+EE.F.D 
+GHHFII 
+G...LL 
+------------------------------
+Gerakan 3 : L L 1
+..C..A 
+BBC..A 
+..CPPDK
+EE.F.D 
+GHHFII 
+G..LL. 
+------------------------------
+Gerakan 4 : E R 1
+..C..A 
+BBC..A 
+..CPPDK
+.EEF.D 
+GHHFII 
+G..LL. 
+------------------------------
+Gerakan 5 : L R 1
+..C..A 
+BBC..A 
+..CPPDK
+.EEF.D 
+GHHFII 
+G...LL 
+------------------------------
+Gerakan 6 : L L 2
+..C..A 
+BBC..A 
+..CPPDK
+.EEF.D 
+GHHFII 
+G.LL.. 
+------------------------------
+Gerakan 7 : G U 1
+..C..A 
+BBC..A 
+..CPPDK
+GEEF.D 
+GHHFII 
+..LL.. 
+------------------------------
+Gerakan 8 : L R 2
+..C..A 
+BBC..A 
+..CPPDK
+GEEF.D 
+GHHFII 
+....LL 
+------------------------------
+Gerakan 9 : L L 4
+..C..A 
+BBC..A 
+..CPPDK
+GEEF.D 
+GHHFII 
+LL.... 
+------------------------------
+Gerakan 10 : L R 3
+..C..A 
+BBC..A 
+..CPPDK
+GEEF.D 
+GHHFII 
+...LL. 
+------------------------------
+Gerakan 11 : L L 2
+..C..A 
+BBC..A 
+..CPPDK
+GEEF.D 
+GHHFII 
+.LL... 
+------------------------------
+Gerakan 12 : F D 1
+..C..A 
+BBC..A 
+..CPPDK
+GEE..D 
+GHHFII 
+.LLF.. 
+------------------------------
+Gerakan 13 : G D 1
+..C..A 
+BBC..A 
+..CPPDK
+.EE..D 
+GHHFII 
+GLLF.. 
+------------------------------
+Gerakan 14 : G U 2
+..C..A 
+BBC..A 
+G.CPPDK
+GEE..D 
+.HHFII 
+.LLF.. 
+------------------------------
+Gerakan 15 : H L 1
+..C..A 
+BBC..A 
+G.CPPDK
+GEE..D 
+HH.FII 
+.LLF.. 
+------------------------------
+Gerakan 16 : L L 1
+..C..A 
+BBC..A 
+G.CPPDK
+GEE..D 
+HH.FII 
+LL.F.. 
+------------------------------
+Gerakan 17 : E R 2
+..C..A 
+BBC..A 
+G.CPPDK
+G..EED 
+HH.FII 
+LL.F.. 
+------------------------------
+Gerakan 18 : L R 1
+..C..A 
+BBC..A 
+G.CPPDK
+G..EED 
+HH.FII 
+.LLF.. 
+------------------------------
+Gerakan 19 : H R 1
+..C..A 
+BBC..A 
+G.CPPDK
+G..EED 
+.HHFII 
+.LLF.. 
+------------------------------
+Gerakan 20 : L L 1
+..C..A 
+BBC..A 
+G.CPPDK
+G..EED 
+.HHFII 
+LL.F.. 
+------------------------------
+Gerakan 21 : G D 1
+..C..A 
+BBC..A 
+..CPPDK
+G..EED 
+GHHFII 
+LL.F.. 
+------------------------------
+Gerakan 22 : L R 1
+..C..A 
+BBC..A 
+..CPPDK
+G..EED 
+GHHFII 
+.LLF.. 
+------------------------------
+Gerakan 23 : G D 1
+..C..A 
+BBC..A 
+..CPPDK
+...EED 
+GHHFII 
+GLLF.. 
+------------------------------
+Gerakan 24 : C D 1
+.....A 
+BBC..A 
+..CPPDK
+..CEED 
+GHHFII 
+GLLF.. 
+------------------------------
+Gerakan 25 : G U 2
+.....A 
+BBC..A 
+G.CPPDK
+G.CEED 
+.HHFII 
+.LLF.. 
+------------------------------
+Gerakan 26 : L L 1
+.....A 
+BBC..A 
+G.CPPDK
+G.CEED 
+.HHFII 
+LL.F.. 
+------------------------------
+Gerakan 27 : H L 1
+.....A 
+BBC..A 
+G.CPPDK
+G.CEED 
+HH.FII 
+LL.F.. 
+------------------------------
+Gerakan 28 : L R 1
+.....A 
+BBC..A 
+G.CPPDK
+G.CEED 
+HH.FII 
+.LLF.. 
+------------------------------
+Gerakan 29 : C D 1
+.....A 
+BB...A 
+G.CPPDK
+G.CEED 
+HHCFII 
+.LLF.. 
+------------------------------
+Gerakan 30 : L L 1
+.....A 
+BB...A 
+G.CPPDK
+G.CEED 
+HHCFII 
+LL.F.. 
+------------------------------
+Gerakan 31 : C D 1
+.....A 
+BB...A 
+G..PPDK
+G.CEED 
+HHCFII 
+LLCF.. 
+------------------------------
+Gerakan 32 : B R 2
+.....A 
+..BB.A 
+G..PPDK
+G.CEED 
+HHCFII 
+LLCF.. 
+------------------------------
+Gerakan 33 : G U 2
+G....A 
+G.BB.A 
+...PPDK
+..CEED 
+HHCFII 
+LLCF.. 
+------------------------------
+Gerakan 34 : C U 1
+G....A 
+G.BB.A 
+..CPPDK
+..CEED 
+HHCFII 
+LL.F.. 
+------------------------------
+Gerakan 35 : G D 2
+.....A 
+..BB.A 
+G.CPPDK
+G.CEED 
+HHCFII 
+LL.F.. 
+------------------------------
+Gerakan 36 : L R 1
+.....A 
+..BB.A 
+G.CPPDK
+G.CEED 
+HHCFII 
+.LLF.. 
+------------------------------
+Gerakan 37 : B R 1
+.....A 
+...BBA 
+G.CPPDK
+G.CEED 
+HHCFII 
+.LLF.. 
+------------------------------
+Gerakan 38 : L L 1
+.....A 
+...BBA 
+G.CPPDK
+G.CEED 
+HHCFII 
+LL.F.. 
+------------------------------
+Gerakan 39 : G U 1
+.....A 
+G..BBA 
+G.CPPDK
+..CEED 
+HHCFII 
+LL.F.. 
+------------------------------
+Gerakan 40 : L R 1
+.....A 
+G..BBA 
+G.CPPDK
+..CEED 
+HHCFII 
+.LLF.. 
+------------------------------
+Gerakan 41 : C U 1
+.....A 
+G.CBBA 
+G.CPPDK
+..CEED 
+HH.FII 
+.LLF.. 
+------------------------------
+Gerakan 42 : L L 1
+.....A 
+G.CBBA 
+G.CPPDK
+..CEED 
+HH.FII 
+LL.F.. 
+------------------------------
+Gerakan 43 : G D 1
+.....A 
+..CBBA 
+G.CPPDK
+G.CEED 
+HH.FII 
+LL.F.. 
+------------------------------
+Gerakan 44 : L R 1
+.....A 
+..CBBA 
+G.CPPDK
+G.CEED 
+HH.FII 
+.LLF.. 
+------------------------------
+Gerakan 45 : G U 2
+G....A 
+G.CBBA 
+..CPPDK
+..CEED 
+HH.FII 
+.LLF.. 
+------------------------------
+Gerakan 46 : L L 1
+G....A 
+G.CBBA 
+..CPPDK
+..CEED 
+HH.FII 
+LL.F.. 
+------------------------------
+Gerakan 47 : H R 1
+G....A 
+G.CBBA 
+..CPPDK
+..CEED 
+.HHFII 
+LL.F.. 
+------------------------------
+Gerakan 48 : L R 1
+G....A 
+G.CBBA 
+..CPPDK
+..CEED 
+.HHFII 
+.LLF.. 
+------------------------------
+Gerakan 49 : G D 3
+.....A 
+..CBBA 
+..CPPDK
+G.CEED 
+GHHFII 
+.LLF.. 
+------------------------------
+Gerakan 50 : L L 1
+.....A 
+..CBBA 
+..CPPDK
+G.CEED 
+GHHFII 
+LL.F.. 
+------------------------------
+Gerakan 51 : C U 1
+..C..A 
+..CBBA 
+..CPPDK
+G..EED 
+GHHFII 
+LL.F.. 
+------------------------------
+Gerakan 52 : G U 3
+G.C..A 
+G.CBBA 
+..CPPDK
+...EED 
+.HHFII 
+LL.F.. 
+------------------------------
+Gerakan 53 : H L 1
+G.C..A 
+G.CBBA 
+..CPPDK
+...EED 
+HH.FII 
+LL.F.. 
+------------------------------
+Gerakan 54 : L R 1
+G.C..A 
+G.CBBA 
+..CPPDK
+...EED 
+HH.FII 
+.LLF.. 
+------------------------------
+Gerakan 55 : G D 2
+..C..A 
+..CBBA 
+G.CPPDK
+G..EED 
+HH.FII 
+.LLF.. 
+------------------------------
+Gerakan 56 : H R 1
+..C..A 
+..CBBA 
+G.CPPDK
+G..EED 
+.HHFII 
+.LLF.. 
+------------------------------
+Gerakan 57 : L L 1
+..C..A 
+..CBBA 
+G.CPPDK
+G..EED 
+.HHFII 
+LL.F.. 
+------------------------------
+Gerakan 58 : E L 2
+..C..A 
+..CBBA 
+G.CPPDK
+GEE..D 
+.HHFII 
+LL.F.. 
+------------------------------
+Gerakan 59 : L R 1
+..C..A 
+..CBBA 
+G.CPPDK
+GEE..D 
+.HHFII 
+.LLF.. 
+------------------------------
+Gerakan 60 : G D 2
+..C..A 
+..CBBA 
+..CPPDK
+.EE..D 
+GHHFII 
+GLLF.. 
+------------------------------
+Gerakan 61 : G U 4
+G.C..A 
+G.CBBA 
+..CPPDK
+.EE..D 
+.HHFII 
+.LLF.. 
+------------------------------
+Gerakan 62 : H L 1
+G.C..A 
+G.CBBA 
+..CPPDK
+.EE..D 
+HH.FII 
+.LLF.. 
+------------------------------
+Gerakan 63 : L L 1
+G.C..A 
+G.CBBA 
+..CPPDK
+.EE..D 
+HH.FII 
+LL.F.. 
+------------------------------
+Gerakan 64 : F U 1
+G.C..A 
+G.CBBA 
+..CPPDK
+.EEF.D 
+HH.FII 
+LL.... 
+------------------------------
+Gerakan 65 : L R 4
+G.C..A 
+G.CBBA 
+..CPPDK
+.EEF.D 
+HH.FII 
+....LL 
+------------------------------
+Gerakan 66 : L L 2
+G.C..A 
+G.CBBA 
+..CPPDK
+.EEF.D 
+HH.FII 
+..LL.. 
+------------------------------
+Gerakan 67 : L R 1
+G.C..A 
+G.CBBA 
+..CPPDK
+.EEF.D 
+HH.FII 
+...LL. 
+------------------------------
+Gerakan 68 : H R 1
+G.C..A 
+G.CBBA 
+..CPPDK
+.EEF.D 
+.HHFII 
+...LL. 
+------------------------------
+Gerakan 69 : L R 1
+G.C..A 
+G.CBBA 
+..CPPDK
+.EEF.D 
+.HHFII 
+....LL 
+------------------------------
+Gerakan 70 : L L 3
+G.C..A 
+G.CBBA 
+..CPPDK
+.EEF.D 
+.HHFII 
+.LL... 
+------------------------------
+Gerakan 71 : L R 1
+G.C..A 
+G.CBBA 
+..CPPDK
+.EEF.D 
+.HHFII 
+..LL.. 
+------------------------------
+Gerakan 72 : G D 3
+..C..A 
+..CBBA 
+..CPPDK
+GEEF.D 
+GHHFII 
+..LL.. 
+------------------------------
+Gerakan 73 : L R 2
+..C..A 
+..CBBA 
+..CPPDK
+GEEF.D 
+GHHFII 
+....LL 
+------------------------------
+Gerakan 74 : L L 4
+..C..A 
+..CBBA 
+..CPPDK
+GEEF.D 
+GHHFII 
+LL.... 
+------------------------------
+Gerakan 75 : L R 3
+..C..A 
+..CBBA 
+..CPPDK
+GEEF.D 
+GHHFII 
+...LL. 
+------------------------------
+Gerakan 76 : L L 2
+..C..A 
+..CBBA 
+..CPPDK
+GEEF.D 
+GHHFII 
+.LL... 
+------------------------------
+Gerakan 77 : G U 1
+..C..A 
+..CBBA 
+G.CPPDK
+GEEF.D 
+.HHFII 
+.LL... 
+------------------------------
+Gerakan 78 : L R 3
+..C..A 
+..CBBA 
+G.CPPDK
+GEEF.D 
+.HHFII 
+....LL 
+------------------------------
+Gerakan 79 : L L 4
+..C..A 
+..CBBA 
+G.CPPDK
+GEEF.D 
+.HHFII 
+LL.... 
+------------------------------
+Gerakan 80 : L R 2
+..C..A 
+..CBBA 
+G.CPPDK
+GEEF.D 
+.HHFII 
+..LL.. 
+------------------------------
+Gerakan 81 : H L 1
+..C..A 
+..CBBA 
+G.CPPDK
+GEEF.D 
+HH.FII 
+..LL.. 
+------------------------------
+Gerakan 82 : L R 2
+..C..A 
+..CBBA 
+G.CPPDK
+GEEF.D 
+HH.FII 
+....LL 
+------------------------------
+Gerakan 83 : L L 4
+..C..A 
+..CBBA 
+G.CPPDK
+GEEF.D 
+HH.FII 
+LL.... 
+------------------------------
+Gerakan 84 : L R 1
+..C..A 
+..CBBA 
+G.CPPDK
+GEEF.D 
+HH.FII 
+.LL... 
+------------------------------
+Gerakan 85 : G U 1
+..C..A 
+G.CBBA 
+G.CPPDK
+.EEF.D 
+HH.FII 
+.LL... 
+------------------------------
+Gerakan 86 : L R 3
+..C..A 
+G.CBBA 
+G.CPPDK
+.EEF.D 
+HH.FII 
+....LL 
+------------------------------
+Gerakan 87 : L L 4
+..C..A 
+G.CBBA 
+G.CPPDK
+.EEF.D 
+HH.FII 
+LL.... 
+------------------------------
+Gerakan 88 : E L 1
+..C..A 
+G.CBBA 
+G.CPPDK
+EE.F.D 
+HH.FII 
+LL.... 
+------------------------------
+Gerakan 89 : L R 3
+..C..A 
+G.CBBA 
+G.CPPDK
+EE.F.D 
+HH.FII 
+...LL. 
+------------------------------
+Gerakan 90 : L L 1
+..C..A 
+G.CBBA 
+G.CPPDK
+EE.F.D 
+HH.FII 
+..LL.. 
+------------------------------
+Gerakan 91 : G U 1
+G.C..A 
+G.CBBA 
+..CPPDK
+EE.F.D 
+HH.FII 
+..LL.. 
+------------------------------
+Gerakan 92 : L R 2
+G.C..A 
+G.CBBA 
+..CPPDK
+EE.F.D 
+HH.FII 
+....LL 
+------------------------------
+Gerakan 93 : L L 4
+G.C..A 
+G.CBBA 
+..CPPDK
+EE.F.D 
+HH.FII 
+LL.... 
+------------------------------
+Gerakan 94 : L R 3
+G.C..A 
+G.CBBA 
+..CPPDK
+EE.F.D 
+HH.FII 
+...LL. 
+------------------------------
+Gerakan 95 : L L 2
+G.C..A 
+G.CBBA 
+..CPPDK
+EE.F.D 
+HH.FII 
+.LL... 
+------------------------------
+Gerakan 96 : H R 1
+G.C..A 
+G.CBBA 
+..CPPDK
+EE.F.D 
+.HHFII 
+.LL... 
+------------------------------
+Gerakan 97 : L R 3
+G.C..A 
+G.CBBA 
+..CPPDK
+EE.F.D 
+.HHFII 
+....LL 
+------------------------------
+Gerakan 98 : L L 4
+G.C..A 
+G.CBBA 
+..CPPDK
+EE.F.D 
+.HHFII 
+LL.... 
+------------------------------
+Gerakan 99 : L R 2
+G.C..A 
+G.CBBA 
+..CPPDK
+EE.F.D 
+.HHFII 
+..LL.. 
+------------------------------
+Gerakan 100 : C D 1
+G....A 
+G.CBBA 
+..CPPDK
+EECF.D 
+.HHFII 
+..LL.. 
+------------------------------
+Gerakan 101 : L R 2
+G....A 
+G.CBBA 
+..CPPDK
+EECF.D 
+.HHFII 
+....LL 
+------------------------------
+Gerakan 102 : L L 4
+G....A 
+G.CBBA 
+..CPPDK
+EECF.D 
+.HHFII 
+LL.... 
+------------------------------
+Gerakan 103 : H L 1
+G....A 
+G.CBBA 
+..CPPDK
+EECF.D 
+HH.FII 
+LL.... 
+------------------------------
+Gerakan 104 : L R 3
+G....A 
+G.CBBA 
+..CPPDK
+EECF.D 
+HH.FII 
+...LL. 
+------------------------------
+Gerakan 105 : L L 1
+G....A 
+G.CBBA 
+..CPPDK
+EECF.D 
+HH.FII 
+..LL.. 
+------------------------------
+Gerakan 106 : C D 1
+G....A 
+G..BBA 
+..CPPDK
+EECF.D 
+HHCFII 
+..LL.. 
+------------------------------
+Gerakan 107 : L R 2
+G....A 
+G..BBA 
+..CPPDK
+EECF.D 
+HHCFII 
+....LL 
+------------------------------
+Gerakan 108 : L L 4
+G....A 
+G..BBA 
+..CPPDK
+EECF.D 
+HHCFII 
+LL.... 
+------------------------------
+Gerakan 109 : L R 3
+G....A 
+G..BBA 
+..CPPDK
+EECF.D 
+HHCFII 
+...LL. 
+------------------------------
+Gerakan 110 : L L 2
+G....A 
+G..BBA 
+..CPPDK
+EECF.D 
+HHCFII 
+.LL... 
+------------------------------
+Gerakan 111 : G D 1
+.....A 
+G..BBA 
+G.CPPDK
+EECF.D 
+HHCFII 
+.LL... 
+------------------------------
+Gerakan 112 : L R 3
+.....A 
+G..BBA 
+G.CPPDK
+EECF.D 
+HHCFII 
+....LL 
+------------------------------
+Gerakan 113 : L L 4
+.....A 
+G..BBA 
+G.CPPDK
+EECF.D 
+HHCFII 
+LL.... 
+------------------------------
+Gerakan 114 : L R 2
+.....A 
+G..BBA 
+G.CPPDK
+EECF.D 
+HHCFII 
+..LL.. 
+------------------------------
+Gerakan 115 : B L 1
+.....A 
+G.BB.A 
+G.CPPDK
+EECF.D 
+HHCFII 
+..LL.. 
+------------------------------
+Gerakan 116 : L R 2
+.....A 
+G.BB.A 
+G.CPPDK
+EECF.D 
+HHCFII 
+....LL 
+------------------------------
+Gerakan 117 : F D 1
+.....A 
+G.BB.A 
+G.CPPDK
+EEC..D 
+HHCFII 
+...FLL 
+------------------------------
+Gerakan 118 : G U 1
+G....A 
+G.BB.A 
+..CPPDK
+EEC..D 
+HHCFII 
+...FLL 
+------------------------------
+Gerakan 119 : C D 1
+G....A 
+G.BB.A 
+...PPDK
+EEC..D 
+HHCFII 
+..CFLL 
+------------------------------
+Gerakan 120 : F U 1
+G....A 
+G.BB.A 
+...PPDK
+EECF.D 
+HHCFII 
+..C.LL 
+------------------------------
+Gerakan 121 : L L 1
+G....A 
+G.BB.A 
+...PPDK
+EECF.D 
+HHCFII 
+..CLL. 
+------------------------------
+Gerakan 122 : B L 1
+G....A 
+GBB..A 
+...PPDK
+EECF.D 
+HHCFII 
+..CLL. 
+------------------------------
+Gerakan 123 : G D 1
+.....A 
+GBB..A 
+G..PPDK
+EECF.D 
+HHCFII 
+..CLL. 
+------------------------------
+Gerakan 124 : L R 1
+.....A 
+GBB..A 
+G..PPDK
+EECF.D 
+HHCFII 
+..C.LL 
+------------------------------
+Gerakan 125 : P L 1
+.....A 
+GBB..A 
+G.PP.DK
+EECF.D 
+HHCFII 
+..C.LL 
+------------------------------
+Gerakan 126 : L L 1
+.....A 
+GBB..A 
+G.PP.DK
+EECF.D 
+HHCFII 
+..CLL. 
+------------------------------
+Gerakan 127 : B R 2
+.....A 
+G..BBA 
+G.PP.DK
+EECF.D 
+HHCFII 
+..CLL. 
+------------------------------
+Gerakan 128 : P L 1
+.....A 
+G..BBA 
+GPP..DK
+EECF.D 
+HHCFII 
+..CLL. 
+------------------------------
+Gerakan 129 : G U 1
+G....A 
+G..BBA 
+.PP..DK
+EECF.D 
+HHCFII 
+..CLL. 
+------------------------------
+Gerakan 130 : L R 1
+G....A 
+G..BBA 
+.PP..DK
+EECF.D 
+HHCFII 
+..C.LL 
+------------------------------
+Gerakan 131 : G D 1
+.....A 
+G..BBA 
+GPP..DK
+EECF.D 
+HHCFII 
+..C.LL 
+------------------------------
+Gerakan 132 : F D 1
+.....A 
+G..BBA 
+GPP..DK
+EEC..D 
+HHCFII 
+..CFLL 
+------------------------------
+Gerakan 133 : G U 1
+G....A 
+G..BBA 
+.PP..DK
+EEC..D 
+HHCFII 
+..CFLL 
+------------------------------
+Gerakan 134 : B L 2
+G....A 
+GBB..A 
+.PP..DK
+EEC..D 
+HHCFII 
+..CFLL 
+------------------------------
+Gerakan 135 : F U 4
+G..F.A 
+GBBF.A 
+.PP..DK
+EEC..D 
+HHC.II 
+..C.LL 
+------------------------------
+Gerakan 136 : P R 2
+G..F.A 
+GBBF.A 
+...PPDK
+EEC..D 
+HHC.II 
+..C.LL 
+------------------------------
+Gerakan 137 : I L 1
+G..F.A 
+GBBF.A 
+...PPDK
+EEC..D 
+HHCII. 
+..C.LL 
+------------------------------
+Gerakan 138 : D D 1
+G..F.A 
+GBBF.A 
+...PP.K
+EEC..D 
+HHCIID 
+..C.LL 
+------------------------------
+Gerakan 139 : P R 1
+G..F.A 
+GBBF.A 
+....PPK
+EEC..D 
+HHCIID 
+..C.LL 
+------------------------------

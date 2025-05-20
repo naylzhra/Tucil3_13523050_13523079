@@ -1,0 +1,164 @@
+===== RUSH HOUR SOLUTION =====
+Total moves   : 19
+Nodes visited : 582
+------------------------------
+Papan awal:
+.....A 
+BBC..A 
+..CPPDK
+EECF.D 
+GHHFII 
+GLL... 
+------------------------------
+Gerakan 1 : C U 1
+..C..A 
+BBC..A 
+..CPPDK
+EE.F.D 
+GHHFII 
+GLL... 
+------------------------------
+Gerakan 2 : L R 3
+..C..A 
+BBC..A 
+..CPPDK
+EE.F.D 
+GHHFII 
+G...LL 
+------------------------------
+Gerakan 3 : F D 1
+..C..A 
+BBC..A 
+..CPPDK
+EE...D 
+GHHFII 
+G..FLL 
+------------------------------
+Gerakan 4 : E R 3
+..C..A 
+BBC..A 
+..CPPDK
+...EED 
+GHHFII 
+G..FLL 
+------------------------------
+Gerakan 5 : G U 2
+..C..A 
+BBC..A 
+G.CPPDK
+G..EED 
+.HHFII 
+...FLL 
+------------------------------
+Gerakan 6 : H L 1
+..C..A 
+BBC..A 
+G.CPPDK
+G..EED 
+HH.FII 
+...FLL 
+------------------------------
+Gerakan 7 : C D 3
+.....A 
+BB...A 
+G..PPDK
+G.CEED 
+HHCFII 
+..CFLL 
+------------------------------
+Gerakan 8 : B R 3
+.....A 
+...BBA 
+G..PPDK
+G.CEED 
+HHCFII 
+..CFLL 
+------------------------------
+Gerakan 9 : G U 1
+.....A 
+G..BBA 
+G..PPDK
+..CEED 
+HHCFII 
+..CFLL 
+------------------------------
+Gerakan 10 : C U 3
+..C..A 
+G.CBBA 
+G.CPPDK
+...EED 
+HH.FII 
+...FLL 
+------------------------------
+Gerakan 11 : E L 3
+..C..A 
+G.CBBA 
+G.CPPDK
+EE...D 
+HH.FII 
+...FLL 
+------------------------------
+Gerakan 12 : C D 3
+.....A 
+G..BBA 
+G..PPDK
+EEC..D 
+HHCFII 
+..CFLL 
+------------------------------
+Gerakan 13 : B L 2
+.....A 
+GBB..A 
+G..PPDK
+EEC..D 
+HHCFII 
+..CFLL 
+------------------------------
+Gerakan 14 : P L 2
+.....A 
+GBB..A 
+GPP..DK
+EEC..D 
+HHCFII 
+..CFLL 
+------------------------------
+Gerakan 15 : F U 4
+...F.A 
+GBBF.A 
+GPP..DK
+EEC..D 
+HHC.II 
+..C.LL 
+------------------------------
+Gerakan 16 : P R 2
+...F.A 
+GBBF.A 
+G..PPDK
+EEC..D 
+HHC.II 
+..C.LL 
+------------------------------
+Gerakan 17 : I L 1
+...F.A 
+GBBF.A 
+G..PPDK
+EEC..D 
+HHCII. 
+..C.LL 
+------------------------------
+Gerakan 18 : D D 1
+...F.A 
+GBBF.A 
+G..PP.K
+EEC..D 
+HHCIID 
+..C.LL 
+------------------------------
+Gerakan 19 : P R 1
+...F.A 
+GBBF.A 
+G...PPK
+EEC..D 
+HHCIID 
+..C.LL 
+------------------------------
