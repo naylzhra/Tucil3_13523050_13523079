@@ -1,0 +1,68 @@
+===== RUSH HOUR SOLUTION =====
+Total moves   : 7
+Nodes visited : 11
+------------------------------
+Step 0 : START
+AAB..F
+..BCDF
+GPPCDF
+GH.III
+GHJ...
+LLJMM.
+------------------------------
+Step 1 : C U 1
+AABC.F
+..BCDF
+GPP.DF
+GH.III
+GHJ...
+LLJMM.
+------------------------------
+Step 2 : P R 1
+AABC.F
+..BCDF
+G.PPDF
+GH.III
+GHJ...
+LLJMM.
+------------------------------
+Step 3 : D U 1
+AABCDF
+..BCDF
+G.PP.F
+GH.III
+GHJ...
+LLJMM.
+------------------------------
+Step 4 : P R 1
+AABCDF
+..BCDF
+G..PPF
+GH.III
+GHJ...
+LLJMM.
+------------------------------
+Step 5 : I L 1
+AABCDF
+..BCDF
+G..PPF
+GHIII.
+GHJ...
+LLJMM.
+------------------------------
+Step 6 : F D 3
+AABCD.
+..BCD.
+G..PP.
+GHIIIF
+GHJ..F
+LLJMMF
+------------------------------
+Step 7 : P R 1
+AABCD.
+..BCD.
+G...PP
+GHIIIF
+GHJ..F
+LLJMMF
+------------------------------

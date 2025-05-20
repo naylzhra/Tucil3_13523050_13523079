@@ -1,8 +1,12 @@
 package utils;
 
-import java.io.*;
-import java.util.*;
-import java.util.function.BiConsumer;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import object.Board;
 import object.Piece;
@@ -83,6 +87,44 @@ public class Input {
             br.reset();
         }
         br.close();
+
+        for (Piece p : pieces) {
+            char id = p.id;
+            int len = p.length;
+            if (len < 2) {
+                throw new IOException("Piece '" + id + "' too short: length=" + len + " (min 2)");
+            }
+            // kumpulkan koordinat semua sel ber-‘id’
+            List<int[]> coords = new ArrayList<>();
+            for (int r = 0; r < row; r++) {
+                for (int c = 0; c < col; c++) {
+                    if (grid[r][c] == id) {
+                        coords.add(new int[]{r,c});
+                    }
+                }
+            }
+            // harus sama banyak dengan p.length
+            if (coords.size() != len) {
+                throw new IOException("Piece '" + id + "' inconsistency: counted=" 
+                                      + coords.size() + " vs length=" + len);
+            }
+            // cek lurus
+            if (p.isHorizontal) {
+                int r0 = coords.get(0)[0];
+                int minC = coords.stream().mapToInt(c->c[1]).min().getAsInt();
+                int maxC = coords.stream().mapToInt(c->c[1]).max().getAsInt();
+                if (coords.stream().anyMatch(c->c[0]!=r0) || maxC-minC+1 != len) {
+                    throw new IOException("Piece '" + id + "' is not straight horizontal");
+                }
+            } else {
+                int c0 = coords.get(0)[1];
+                int minR = coords.stream().mapToInt(c->c[0]).min().getAsInt();
+                int maxR = coords.stream().mapToInt(c->c[0]).max().getAsInt();
+                if (coords.stream().anyMatch(c->c[1]!=c0) || maxR-minR+1 != len) {
+                    throw new IOException("Piece '" + id + "' is not straight vertical");
+                }
+            }
+        }
 
         pieces.addAll(pieceMap.values());
         return new Board(grid, pieces, goalRow, goalCol, exitDir);

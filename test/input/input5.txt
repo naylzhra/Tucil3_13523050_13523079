@@ -1,0 +1,8 @@
+5 7
+10
+  K
+AA..CBB
+.DPCCB.
+.EP...F
+.GHH..F
+.G.JJJ.
