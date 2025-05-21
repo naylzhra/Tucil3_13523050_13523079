@@ -35,7 +35,7 @@ Output : jumlah node yang dikunjungi, waktu eksekusi, serta urutan konfigurasi p
 
 #### 1. Clone repository
 ```bash
-git clone https://github.com/your-git/Tucil3_13523050_13523079.git     
+git clone https://github.com/naylzhra/Tucil3_13523050_13523079.git    
 ```
 #### 2. Masuk ke repository di local, lalu jalankan
 ```bash
